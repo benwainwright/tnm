@@ -1,3 +1,10 @@
+## [1.16.0](https://github.com/benwainwright/tnm/compare/v1.15.0...v1.16.0) (2021-10-09)
+
+
+### Features
+
+* add total per meal to cook plan ([4173223](https://github.com/benwainwright/tnm/commit/417322349245d42b5370d05d6363e294d38dc487))
+
 ## [1.15.0](https://github.com/benwainwright/tnm/compare/v1.14.1...v1.15.0) (2021-09-25)
 
 
