@@ -38,6 +38,7 @@ jobs:
       - name: Deploy Backend
         run: |
           cd $PACKAGE_DIR
+          mkdir no-cache
           npm run deploy:backend:test
         env:
           DEPLOYMENT_ENVIRONMENT: test
