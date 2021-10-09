@@ -51,7 +51,9 @@ type Result =
 
 /* eslint-disable import/prefer-default-export */
 export const handler: AppSyncResolverHandler<AllQueryVariables, Result> =
-  async (event) => {
+  async event => {
+    // eslint-disable-next-line no-console
+    console.log(JSON.stringify(event, null, 2));
     if (isListCustomersQuery(event)) {
       return await listCustomers();
     }

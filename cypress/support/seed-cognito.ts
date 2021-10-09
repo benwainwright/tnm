@@ -40,8 +40,8 @@ const seedCognito = async (): Promise<void> => {
 
   assertIsBackendOutputs(loadedConfig);
 
-  const config = Object.entries(loadedConfig).find(([key]) =>
-    key.includes("BackendStack")
+  const config = Object.entries(loadedConfig).find(([, value]) =>
+    Object.hasOwnProperty.call(value, "UserPoolId")
   )?.[1];
 
   if (!config) {
