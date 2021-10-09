@@ -56,6 +56,9 @@ const generateCookPlanDocumentDefinition = (
     };
   };
 
+  const totalMeals = (map: RecipeVariantMap) =>
+    Object.values(map).reduce((total, variant) => variant.count + total, 0);
+
   const formatRecipeVariantMapNoCustomisationsCell = (
     map: RecipeVariantMap
   ) => ({
@@ -67,12 +70,19 @@ const generateCookPlanDocumentDefinition = (
       .map(key => formatPlanItem(`${key} x ${map[key].count}`, map[key]))
   });
 
+  const makeLabelCell = (name: string, map: RecipeVariantMap) => [
+    {
+      text: `${name} (x ${totalMeals(map)})`,
+      style: "rowHeader"
+    }
+  ];
+
   const convertPlanToRows = (
     individualCookPlan: Map<string, RecipeVariantMap>
   ) => {
     const all = Array.from(individualCookPlan.entries());
     return all.map(([recipeName, value]) => [
-      { text: recipeName, style: "rowHeader" },
+      makeLabelCell(recipeName, value),
       formatRecipeVariantMapNoCustomisationsCell(value),
       formatRecipeVariantMapCustomisationsCell(value)
     ]);
