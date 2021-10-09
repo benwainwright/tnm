@@ -1,3 +1,10 @@
+## [1.17.0](https://github.com/benwainwright/tnm/compare/v1.16.0...v1.17.0) (2021-10-09)
+
+
+### Features
+
+* add structured logging for mutations ([1d4715c](https://github.com/benwainwright/tnm/commit/1d4715c231edcf28794975032414725e3773f995))
+
 ## [1.16.0](https://github.com/benwainwright/tnm/compare/v1.15.0...v1.16.0) (2021-10-09)
 
 
