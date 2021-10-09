@@ -16,8 +16,8 @@ const configureCognitoAndSignIn = async (
   const rawConfig = await configResponse.json();
   assertIsBackendOutputs(rawConfig);
 
-  const config = Object.entries(rawConfig).find(([key]) =>
-    key.includes("BackendStack")
+  const config = Object.entries(rawConfig).find(([, value]) =>
+    Object.hasOwnProperty.call(value, "UserPoolId")
   )?.[1];
 
   if (!config) {
