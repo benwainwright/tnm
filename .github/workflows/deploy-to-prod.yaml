@@ -49,7 +49,6 @@ jobs:
       - name: Deploy Frontend
         run: |
           cd $PACKAGE_DIR
-          mkdir no-cache
           cp backend-outputs.json no-cache
           cp CHANGELOG.md no-cache
           npm run deploy:frontend:prod
