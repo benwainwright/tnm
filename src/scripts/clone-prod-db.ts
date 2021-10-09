@@ -2,8 +2,12 @@
 // @ts-ignore
 import { copy } from "copy-dynamodb-table";
 
-const doCopy = async () =>
-  await Promise.resolve(
+const doCopy = async (sourceEnv: string, destinationEnv: string) => {
+  if (destinationEnv === "prod") {
+    throw new Error("You absolutely cannot use this tool to clone to prod");
+  }
+
+  return await Promise.resolve(
     [
       "recipes-table",
       "exclusions-table",
@@ -21,10 +25,10 @@ const doCopy = async () =>
                 region: "us-east-1"
               },
               source: {
-                tableName: `prod-tnm-admin-${table}`
+                tableName: `${sourceEnv}-tnm-admin-${table}`
               },
               destination: {
-                tableName: `dev-tnm-admin-${table}`
+                tableName: `${destinationEnv}-tnm-admin-${table}`
               },
               log: true,
               create: false
@@ -41,8 +45,9 @@ const doCopy = async () =>
         })
     )
   );
+};
 
-doCopy().catch((error: Error) => {
+doCopy("prod", "dev").catch((error: Error) => {
   // eslint-disable-next-line no-console
   console.log(error);
 });
