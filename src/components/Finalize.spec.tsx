@@ -43,14 +43,28 @@ test("the finalize component displays the customer name at the top of each table
   r3.description = "beeee";
   r3.shortName = "dd";
 
+  const mockPlan = mock<CustomerPlan>();
+  mockPlan.configuration = {
+    planType: "EQ",
+    daysPerWeek: 7,
+    mealsPerDay: 3,
+    totalPlans: 1,
+    deliveryDays: [],
+    extrasChosen: []
+  };
+
+  mockPlan.deliveries = [];
+
   const c = mock<Customer>();
   c.firstName = "Chris";
   c.id = "0";
   c.surname = "Blogs";
+  c.newPlan = mockPlan;
 
   const c1 = mock<Customer>();
   c1.firstName = "Joe";
   c1.id = "1";
+  c1.newPlan = mockPlan;
   c1.surname = "Smith";
 
   when(mocked(useSelector))
@@ -160,15 +174,29 @@ test("the finalize component displays at least one labelled row for each deliver
   r3.description = "beeee";
   r3.shortName = "ad";
 
+  const mockPlan = mock<CustomerPlan>();
+  mockPlan.configuration = {
+    planType: "EQ",
+    daysPerWeek: 7,
+    mealsPerDay: 3,
+    totalPlans: 1,
+    deliveryDays: [],
+    extrasChosen: []
+  };
+
+  mockPlan.deliveries = [];
+
   const c = mock<Customer>();
   c.id = "0";
   c.firstName = "Chris";
   c.surname = "Blogs";
+  c.newPlan = mockPlan;
 
   const c1 = mock<Customer>();
   c1.id = "1";
   c1.firstName = "Joe";
   c1.surname = "Smith";
+  c1.newPlan = mockPlan;
 
   when(mocked(useSelector))
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -277,15 +305,29 @@ test("The finalize component breaks rows that are longer than six items into mul
   r3.description = "beeee";
   r3.shortName = "ad";
 
+  const mockPlan = mock<CustomerPlan>();
+  mockPlan.configuration = {
+    planType: "EQ",
+    daysPerWeek: 7,
+    mealsPerDay: 3,
+    totalPlans: 1,
+    deliveryDays: [],
+    extrasChosen: []
+  };
+
+  mockPlan.deliveries = [];
+
   const c = mock<Customer>();
   c.id = "0";
   c.firstName = "Chris";
   c.surname = "Blogs";
+  c.newPlan = mockPlan;
 
   const c1 = mock<Customer>();
   c1.id = "1";
   c1.firstName = "Joe";
   c1.surname = "Smith";
+  c1.newPlan = mockPlan;
 
   when(mocked(useSelector))
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -414,15 +456,28 @@ test("The finalize component does not display the string 'multiple' in any of th
   r3.description = "beeee";
   r3.shortName = "ad";
 
+  const mockPlan = mock<CustomerPlan>();
+  mockPlan.configuration = {
+    planType: "EQ",
+    daysPerWeek: 7,
+    mealsPerDay: 3,
+    totalPlans: 1,
+    deliveryDays: [],
+    extrasChosen: []
+  };
+
+  mockPlan.deliveries = [];
   const c = mock<Customer>();
   c.id = "0";
   c.firstName = "Chris";
   c.surname = "Blogs";
+  c.newPlan = mockPlan;
 
   const c1 = mock<Customer>();
   c1.id = "1";
   c1.firstName = "Joe";
   c1.surname = "Smith";
+  c1.newPlan = mockPlan;
 
   when(mocked(useSelector))
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -524,15 +579,29 @@ test("The finalize component displays the selected meals for the customer is the
   r3.description = "beeee";
   r3.shortName = "ad";
 
+  const mockPlan = mock<CustomerPlan>();
+  mockPlan.configuration = {
+    planType: "EQ",
+    daysPerWeek: 7,
+    mealsPerDay: 3,
+    totalPlans: 1,
+    deliveryDays: [],
+    extrasChosen: []
+  };
+
+  mockPlan.deliveries = [];
+
   const c = mock<Customer>();
   c.id = "0";
   c.firstName = "Chris";
   c.surname = "Blogs";
+  c.newPlan = mockPlan;
 
   const c1 = mock<Customer>();
   c1.id = "1";
   c1.firstName = "Joe";
   c1.surname = "Smith";
+  c1.newPlan = mockPlan;
 
   when(mocked(useSelector))
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
