@@ -12,6 +12,7 @@ import {
 } from "../features/planner/planner-reducer";
 import Customer from "../domain/Customer";
 import { Grommet } from "grommet";
+import { CustomerPlan } from "../features/customers/types";
 
 const FakeLink: React.FC = (props) => <>{props.children}</>;
 
