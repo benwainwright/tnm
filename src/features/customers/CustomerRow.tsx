@@ -10,14 +10,13 @@ import getExtrasString from "../../lib/getExtrasString";
 import getStatusString from "../../lib/getStatusString";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { CustomerPlan, PlannerConfig } from "./types";
-import { isCustomDeliveryPlan } from "./distribution-generator";
 import {
   defaultDeliveryDays,
   planLabels,
   extrasLabels
 } from "../../lib/config";
 import deepMemo from "../../lib/deepMemo";
+import { getPlanString } from "../../lib/get-plan-string";
 
 interface CustomerRowProps {
   customer: Customer;
@@ -26,21 +25,6 @@ interface CustomerRowProps {
 const SlimButton = styled(Button)`
   padding: 0 5px 0 5px;
 `;
-
-const getPlanString = (
-  plan: CustomerPlan | undefined,
-  config: PlannerConfig
-) => {
-  if (!plan) {
-    return "Legacy";
-  }
-
-  if (isCustomDeliveryPlan(plan, config)) {
-    return "Custom";
-  }
-
-  return `${plan.configuration.planType} ${plan.configuration.mealsPerDay} (${plan.configuration.daysPerWeek} days) x ${plan.configuration.totalPlans}`;
-};
 
 const UnMemoizedCustomerRow: React.FC<CustomerRowProps> = props => {
   const [showDoDelete, setShowDoDelete] = React.useState(false);

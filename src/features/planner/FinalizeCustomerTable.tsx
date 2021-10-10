@@ -21,6 +21,12 @@ import DeliveryMealsSelection from "../../types/DeliveryMealsSelection";
 import { Link } from "react-router-dom";
 import { addAdHoc } from "./planner-reducer";
 import { useDispatch } from "react-redux";
+import { getPlanString } from "../../lib/get-plan-string";
+import {
+  defaultDeliveryDays,
+  extrasLabels,
+  planLabels
+} from "../../lib/config";
 
 interface FinalizeRowProps {
   customerSelection: CustomerMealsSelection[number];
@@ -41,6 +47,16 @@ const FinalizeCustomerTableUnMemoized: React.FC<FinalizeRowProps> = props => {
 
   const deliveries = props.customerSelection.deliveries ?? [];
 
+  const planString = React.useMemo(
+    () =>
+      getPlanString(props.customerSelection.customer.newPlan, {
+        planLabels: [...planLabels],
+        extrasLabels: [...extrasLabels],
+        defaultDeliveryDays: [...defaultDeliveryDays]
+      }),
+    [props.customerSelection.customer.newPlan]
+  );
+
   const dispatch = useDispatch();
 
   return (
@@ -56,8 +72,9 @@ const FinalizeCustomerTableUnMemoized: React.FC<FinalizeRowProps> = props => {
                     to={`/edit-customer/${props.customerSelection.customer.id}`}
                   >
                     {name}
-                  </Link>
+                  </Link>{" "}
                 </strong>
+                / {planString}
               </Text>
             </Box>
           </TableCell>
