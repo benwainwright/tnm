@@ -1,3 +1,10 @@
+## [1.18.0](https://github.com/benwainwright/tnm/compare/v1.17.2...v1.18.0) (2021-10-10)
+
+
+### Features
+
+* add plan name on finalize table ([d8aa063](https://github.com/benwainwright/tnm/commit/d8aa0636d470cba4f577abeb90e311fb82d8c107))
+
 ### [1.17.2](https://github.com/benwainwright/tnm/compare/v1.17.1...v1.17.2) (2021-10-09)
 
 ### [1.17.1](https://github.com/benwainwright/tnm/compare/v1.17.0...v1.17.1) (2021-10-09)
