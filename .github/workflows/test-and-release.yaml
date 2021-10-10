@@ -29,7 +29,7 @@ jobs:
         run: mv dist/bundles/backend backend
 
       - name: Generate empty build folder
-        run: mkdir build && mkdir no-cache
+        run: mkdir build && touch build/file
 
       - uses: actions/upload-artifact@v2
         with:
@@ -63,7 +63,7 @@ jobs:
         run: yarn build:backend
 
       - name: Generate empty build folder
-        run: mkdir build && mkdir no-cache 
+        run: mkdir build && touch build/     
 
       - name: Move build output
         run: mv dist/bundles/backend backend
@@ -176,7 +176,7 @@ jobs:
         run: yarn install
 
       - name: Generate empty build folder
-        run: mkdir build && mkdir backend && mkdir no-cache 
+        run: mkdir build && touch build/file && mkdir backend && touch backend/file
 
       - name: Destroy CI Backend stack
         run: yarn destroy:backend:ci
@@ -295,7 +295,7 @@ jobs:
         run: yarn install
 
       - name: Make empty build folder
-        run: mkdir build && mkdir backend && mkdir no-cache
+        run: mkdir build && touch build/file && mkdir backend && touch backend/file
 
       - name: Synth
         run: yarn cdk synth *

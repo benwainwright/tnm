@@ -38,7 +38,6 @@ jobs:
       - name: Deploy Backend
         run: |
           cd $PACKAGE_DIR
-          mkdir no-cache
           npm run deploy:backend:prod
         env:
           DEPLOYMENT_ENVIRONMENT: prod
@@ -49,8 +48,8 @@ jobs:
       - name: Deploy Frontend
         run: |
           cd $PACKAGE_DIR
-          cp backend-outputs.json no-cache
-          cp CHANGELOG.md no-cache
+          cp backend-outputs.json build
+          cp CHANGELOG.md build
           npm run deploy:frontend:prod
         env:
           DEPLOYMENT_ENVIRONMENT: prod

@@ -6,7 +6,6 @@ import * as route53Targets from "@aws-cdk/aws-route53-targets";
 import * as s3 from "@aws-cdk/aws-s3";
 import * as s3Deploy from "@aws-cdk/aws-s3-deployment";
 import addProjectTags from "./addProjectTags";
-import { CacheControl } from "@aws-cdk/aws-s3-deployment";
 
 interface ProductionFrontendStackProps {
   subdomain: string;
@@ -86,17 +85,6 @@ export default class ProductionFrontendStack extends cdk.Stack {
       destinationBucket: bucket,
       distribution,
     });
-
-    new s3Deploy.BucketDeployment(
-      this,
-      "NoCacheProductionFrontendStackDeployment",
-      {
-        sources: [s3Deploy.Source.asset("./no-cache")],
-        destinationBucket: bucket,
-        distribution,
-        cacheControl: [CacheControl.noCache()]
-      }
-    );
 
     new cdk.CfnOutput(this, "CloudFrontDistributionId", {
       value: distribution.distributionId,
