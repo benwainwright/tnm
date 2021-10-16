@@ -14867,7 +14867,7 @@ __metadata:
 
 "eslint-config-benwainwright@github:benwainwright/eslint-config-benwainwright":
   version: 0.0.3
-  resolution: "eslint-config-benwainwright@https://github.com/benwainwright/eslint-config-benwainwright.git#commit=4383882b3c80a65d1305417fe7b198be1937a92f"
+  resolution: "eslint-config-benwainwright@https://github.com/benwainwright/eslint-config-benwainwright.git#commit=3494c2fe04ced67a0b9c7cffdb5602fa44900043"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^2.30.0
     "@typescript-eslint/parser": ^2.30.0
@@ -14886,7 +14886,7 @@ __metadata:
     eslint-plugin-sonarjs: ^0.5.0
     eslint-plugin-spellcheck: ^0.0.14
     eslint-plugin-unicorn: ^19.0.1
-  checksum: 0c297536fcbb37414464e01ee1cabb9b9462f88b090c6acc5219007b3b9af46e31a6c739003a3d07b269f998acfc994f95fc26a717fe9c5b29a655ba96332721
+  checksum: 0d90810ff77e72a1e94cdc64d84bcd854d588a78d5038704b1c8656b92056c9aefc104fef95330817c5ac3a1396ca57084d856237be409f9fb0c163daa584062
   languageName: node
   linkType: hard
 
