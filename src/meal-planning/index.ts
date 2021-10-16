@@ -13,14 +13,12 @@ import type {
 // eslint-disable-next-line no-duplicate-imports
 import { isSelectedMeal } from "./types";
 
+export type { SelectedMeal, CustomerMealsSelection, Delivery, SelectedItem };
+
 export {
   chooseMeals,
   generateLabelData,
   makeCookPlan,
   createVariant,
-  isSelectedMeal,
-  SelectedMeal,
-  CustomerMealsSelection,
-  Delivery,
-  SelectedItem
+  isSelectedMeal
 };
