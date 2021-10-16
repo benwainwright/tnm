@@ -6,7 +6,7 @@ import { curry, pipe } from "ramda";
 type ValueType = string | number | boolean | undefined;
 
 const containsStringOf = (field: string, chars: string[]) =>
-  chars.some((char) => field.includes(char));
+  chars.some(char => field.includes(char));
 
 const convertTypeToString = curry(
   (type: ValueType, field: string): ValueType =>
@@ -36,7 +36,7 @@ interface ArbitraryObjectType {
 }
 
 const generateCsvStringFromObjectArray = (
-  inputObjectArray: ArbitraryObjectType[]
+  inputObjectArray: ReadonlyArray<ArbitraryObjectType>
 ): string => {
   if (inputObjectArray.length === 0) {
     throw new Error(
@@ -47,8 +47,8 @@ const generateCsvStringFromObjectArray = (
   const columnHeaders = Object.keys(inputObjectArray[0]);
 
   const rows = inputObjectArray
-    .map((row) =>
-      createCsvRowString(columnHeaders.map((columnHeader) => row[columnHeader]))
+    .map(row =>
+      createCsvRowString(columnHeaders.map(columnHeader => row[columnHeader]))
     )
     .join("\r\n");
 

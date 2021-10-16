@@ -30,8 +30,25 @@ const makeRowsFromSelections = (
           fontSize: 10,
           text: generateNameString(customerSelection.customer),
           bold: true
-        }
+        },
+        typeof customerSelection.delivery !== "string"
+          ? {
+              ul: Object.entries(
+                customerSelection.delivery
+                  .map(item => item.chosenVariant)
+                  .reduce<Record<string, number>>(
+                    (variantMap, variant) => ({
+                      ...variantMap,
+                      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+                      [variant]: (variantMap[variant] ?? 0) + 1
+                    }),
+                    {}
+                  )
+              ).map(([key, value]) => `${key} x ${value}`)
+            }
+          : ""
       ],
+      [],
       ...(typeof customerSelection.delivery === "string"
         ? [customerSelection.delivery]
         : customerSelection.delivery

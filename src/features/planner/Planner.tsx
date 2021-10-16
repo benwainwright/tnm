@@ -7,8 +7,11 @@ import Finalize from "./Finalize";
 import { clearPlanner, customerSelectionsSelector } from "./planner-reducer";
 import generateDeliveryPlanDocumentDefinition from "../../lib/generateDeliveryPlanDocumentDefinition";
 import generateCookPlanDocumentDefinition from "../../lib/generateCookPlanDocumentDefinition";
+import fileDownload from "js-file-download";
+import generateCsvStringFromObjectArray from "../../lib/generateCsvStringFromObjectArray";
 import downloadPdf from "../../lib/downloadPdf";
-import { makeCookPlan } from "../../meal-planning";
+import { makeCookPlan, generateLabelData } from "../../meal-planning";
+import { defaultDeliveryDays } from "../../lib/config";
 
 const Planner: React.FC = () => {
   const dispatch = useDispatch();
@@ -45,6 +48,23 @@ const Planner: React.FC = () => {
             );
           }}
         />
+        {defaultDeliveryDays.map((value, deliveryIndex) => (
+          <Button
+            key={`delivery-${deliveryIndex}-labels-button`}
+            primary
+            size="small"
+            label={`Labels ${deliveryIndex + 1}`}
+            disabled={Boolean(!customerMeals || !recipes)}
+            onClick={() => {
+              fileDownload(
+                generateCsvStringFromObjectArray(
+                  generateLabelData(customerMeals ?? [], recipes, deliveryIndex)
+                ),
+                "labels.csv"
+              );
+            }}
+          />
+        ))}
         <Button
           primary
           size="small"

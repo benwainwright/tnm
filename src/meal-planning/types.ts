@@ -6,6 +6,11 @@ export interface SelectedMeal {
   chosenVariant: string;
 }
 
+export const isSelectedMeal = (
+  selectedItem: SelectedItem
+): selectedItem is SelectedMeal =>
+  Boolean((selectedItem as SelectedMeal).recipe);
+
 export interface SelectedExtra {
   chosenVariant: string;
 }
