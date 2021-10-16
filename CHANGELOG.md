@@ -1,3 +1,10 @@
+## [1.19.0](https://github.com/benwainwright/tnm/compare/v1.18.0...v1.19.0) (2021-10-16)
+
+
+### Features
+
+* add buttons to generate label data ([0a00b90](https://github.com/benwainwright/tnm/commit/0a00b90b55bc9c16c013c788a79f2b7117ff8d4a))
+
 ## [1.18.0](https://github.com/benwainwright/tnm/compare/v1.17.2...v1.18.0) (2021-10-10)
 
 
