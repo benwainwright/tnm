@@ -25,7 +25,7 @@ const processField = pipe(
   convertTypeToString("number"),
   convertTypeToString("boolean"),
   escapeQuotes,
-  surroundFieldsWithSpecialCharactersInQuotes([",", '"', "\r\n"])
+  surroundFieldsWithSpecialCharactersInQuotes([",", '"', "\n", "\r"])
 );
 
 const createCsvRowString = (fields: ValueType[]) =>
