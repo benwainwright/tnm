@@ -1,3 +1,15 @@
+## [1.20.0](https://github.com/benwainwright/tnm/compare/v1.19.0...v1.20.0) (2021-11-03)
+
+
+### Features
+
+* group cook plan by customer plan ([7ac3856](https://github.com/benwainwright/tnm/commit/7ac385694d0a529cbe8c75103dfee2bc183658c8))
+
+
+### Bug Fixes
+
+* fixed bug with newlines not being escaped properly ([5cbc89a](https://github.com/benwainwright/tnm/commit/5cbc89aad8143c4081a42ba75a3c21c72b230ebe))
+
 ## [1.19.0](https://github.com/benwainwright/tnm/compare/v1.18.0...v1.19.0) (2021-10-16)
 
 
