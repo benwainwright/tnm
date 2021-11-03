@@ -1,9 +1,11 @@
+import Customer from "../domain/Customer";
 import { RecipeVariantMap } from "../types/CookPlan";
 import { DocumentDefinition } from "./downloadPdf";
 import formatPlanItem from "./formatPlanItem";
 import { PdfBuilder } from "./pdf-builder";
 
 const getCountString = (count: number) => (count > 1 ? ` x ${count}` : ``);
+const mainPartOfPlan = (thing: string) => thing.split(" ")[0];
 
 const generateCookPlanDocumentDefinition = (
   cookPlan: Map<string, RecipeVariantMap>[]
@@ -30,12 +32,20 @@ const generateCookPlanDocumentDefinition = (
       .filter(key => map[key].customisation)
       .flatMap(key =>
         map[key].customers.map(customer => ({
-          string: `${customer.surname}, ${customer.firstName} - ${key}`,
-          item: map[key]
+          string: `${key} - ${customer.surname}, ${customer.firstName}`,
+          customer,
+          item: map[key],
+          key
         }))
       )
       .reduce<
-        { string: string; count: number; item: RecipeVariantMap[string] }[]
+        {
+          string: string;
+          count: number;
+          item: RecipeVariantMap[string];
+          key: string;
+          customer: Customer;
+        }[]
       >((accum, item) => {
         const found = accum.find(
           reducedItem => reducedItem.string === item.string
@@ -44,12 +54,28 @@ const generateCookPlanDocumentDefinition = (
           found.count++;
           return accum;
         } else {
-          return [...accum, { string: item.string, count: 1, item: item.item }];
+          return [
+            ...accum,
+            {
+              count: 1,
+              ...item
+            }
+          ];
         }
       }, [])
-      .sort((a, b) => (a.string > b.string ? 1 : -1))
+      .sort((a, b) => {
+        if (mainPartOfPlan(a.key) !== mainPartOfPlan(b.key)) {
+          return a.key > b.key ? 1 : -1;
+        }
+        return a.string > b.string ? 1 : -1;
+      })
       .map(item =>
-        formatPlanItem(`${item.string}${getCountString(item.count)}`, item.item)
+        formatPlanItem(
+          `${item.key}${getCountString(item.count)} - ${
+            item.customer.surname
+          }, ${item.customer.firstName}`,
+          item.item
+        )
       );
     return {
       ul: items
