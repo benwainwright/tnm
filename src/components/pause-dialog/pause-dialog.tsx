@@ -86,8 +86,7 @@ const PauseDialog: React.FC<PauseDialogProps> = (props) => {
                 calendarProps={{
                   a11yTitle: "Start Pause",
                   size: "small",
-                  daysOfWeek: true,
-                  bounds: [todayIso, hundredYearsFromNow.toISOString()],
+                  daysOfWeek: true
                 }}
               />
               <Box pad={{ top: "small" }}>
