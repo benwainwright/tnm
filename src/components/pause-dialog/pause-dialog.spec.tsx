@@ -51,8 +51,6 @@ describe("The pause dialog", () => {
       .find("div")
       .find("button");
 
-    expect(twentySecondOfMonthButton.at(0).prop("disabled")).toEqual(false);
-
     act(() => {
       twentySecondOfMonthButton.prop("onClick")?.({} as React.MouseEvent);
     });
@@ -62,33 +60,6 @@ describe("The pause dialog", () => {
     );
 
     expect(selectedStartDate.at(0).text()).toEqual("from The Date");
-  });
-
-  it("Doesn't allow you to select dates in the past for start pause", () => {
-    const mockMoment = mock<Moment>();
-    mockMoment.calendar.mockReturnValue("The Date");
-    mocked(moment, true).mockReturnValue(mockMoment);
-
-    const customer = mock<Customer>();
-    customer.pauseStart = undefined;
-    customer.pauseEnd = undefined;
-
-    const wrapper = mount(
-      <PauseDialog
-        show={true}
-        customer={customer}
-        onOk={jest.fn()}
-        onCancel={jest.fn()}
-      />
-    );
-
-    const firstOfMonthButton = wrapper
-      .find("[aria-label='Start Pause']")
-      .findWhere((node) => node.text() === "1")
-      .find("div")
-      .find("button");
-
-    expect(firstOfMonthButton.at(0).prop("disabled")).toEqual(true);
   });
 
   it("Doesn't allow you to select dates in the past for end pause", () => {
