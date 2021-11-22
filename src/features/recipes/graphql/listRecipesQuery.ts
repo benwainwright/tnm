@@ -6,6 +6,7 @@ query ListRecipesQuery {
     name
     shortName
     hotOrCold
+    invalidExclusions
     potentialExclusions {
       allergen
       id

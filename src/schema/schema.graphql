@@ -75,6 +75,7 @@ type Recipe {
   hotOrCold: String!
   shortName: String!
   description: String
+  invalidExclusions: [ID!]
   potentialExclusions: [Exclusion!]!
 }
 
@@ -84,6 +85,7 @@ input UpdateRecipeInput {
   shortName: String!
   name: String!
   description: String
+  invalidExclusions: [ID!]
   exclusionIds: [ID!]!
 }
 
@@ -97,6 +99,7 @@ input RecipeInput {
   shortName: String!
   description: String
   exclusionIds: [ID!]!
+  invalidExclusions: [ID!]
 }
 
 type Customer {

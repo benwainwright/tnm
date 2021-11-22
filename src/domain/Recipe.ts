@@ -13,6 +13,7 @@ export default interface Recipe {
   hotOrCold: HotOrCold;
   description?: string;
   potentialExclusions: Exclusion[];
+  invalidExclusions?: string[];
   createdAt?: string;
   updatedAt?: string;
 }
