@@ -41,17 +41,31 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
     props.onOk();
   }, ONSUBMIT_DEBOUNCE);
 
+  const formRecipe = {
+    ...recipe,
+    invalidExclusions: recipe.invalidExclusions?.map(exclusionId =>
+      exclusions.find(otherExclusion => otherExclusion.id === exclusionId)
+    )
+  };
+
   return (
     <Layer>
       <Card>
         <Form
-          value={recipe}
+          value={formRecipe}
           onReset={(): void => {
             setRecipe(props.recipe);
           }}
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onChange={(nextRecipeData: any): void => {
-            setRecipe(nextRecipeData);
+            const stateRecipe = {
+              ...nextRecipeData,
+              invalidExclusions: nextRecipeData.invalidExclusions.map(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (exclusion: any) => exclusion.id
+              )
+            };
+            setRecipe(stateRecipe);
           }}
           onSubmit={onSubmit}
         >
@@ -81,6 +95,16 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
                 multiple
                 closeOnChange={false}
                 name="potentialExclusions"
+                options={exclusions}
+                labelKey="name"
+                valueKey="name"
+              />
+            </FormField>
+            <FormField name="invalidExclusions" label="Exclusions">
+              <Select
+                multiple
+                closeOnChange={false}
+                name="invalidExclusions"
                 options={exclusions}
                 labelKey="name"
                 valueKey="name"
