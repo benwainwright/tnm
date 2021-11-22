@@ -1,3 +1,11 @@
+### [1.20.1](https://github.com/benwainwright/tnm/compare/v1.20.0...v1.20.1) (2021-11-18)
+
+
+### Bug Fixes
+
+* remove pause start bound ([8a49f1d](https://github.com/benwainwright/tnm/commit/8a49f1de820f2c916523ae0f5d05e0ac5d0aee52))
+* remove pause start bound ([86685ac](https://github.com/benwainwright/tnm/commit/86685ac8af821b01515894165d1aa4f55ffc91ff))
+
 ## [1.20.0](https://github.com/benwainwright/tnm/compare/v1.19.0...v1.20.0) (2021-11-03)
 
 
