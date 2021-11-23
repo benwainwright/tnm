@@ -60,10 +60,11 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
           onChange={(nextRecipeData: any): void => {
             const stateRecipe = {
               ...nextRecipeData,
-              invalidExclusions: nextRecipeData.invalidExclusions.map(
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (exclusion: any) => exclusion.id
-              )
+              invalidExclusions:
+                nextRecipeData.invalidExclusions?.map(
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  (exclusion: any) => exclusion.id
+                ) ?? []
             };
             setRecipe(stateRecipe);
           }}
