@@ -1,3 +1,16 @@
+## [1.21.0](https://github.com/benwainwright/tnm/compare/v1.20.1...v1.21.0) (2021-11-23)
+
+
+### Features
+
+* add 'exclusions' dropdown to edit recipe dialog ([d9e30e0](https://github.com/benwainwright/tnm/commit/d9e30e0d8b3802ebec7d1ff94fb91ed5179f5192))
+* change backend to handle 'exclusions' ([d699cc3](https://github.com/benwainwright/tnm/commit/d699cc35965cb429db0bc240376e8f7626561092))
+
+
+### Bug Fixes
+
+* fixed crash when editing recipes with no 'invalidExclusions' ([cefe4f2](https://github.com/benwainwright/tnm/commit/cefe4f27367d46ae1d135a2ae98003b87842946f))
+
 ### [1.20.1](https://github.com/benwainwright/tnm/compare/v1.20.0...v1.20.1) (2021-11-18)
 
 
