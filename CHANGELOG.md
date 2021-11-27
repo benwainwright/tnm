@@ -1,3 +1,15 @@
+## [1.22.0](https://github.com/benwainwright/tnm/compare/v1.21.0...v1.22.0) (2021-11-27)
+
+
+### Features
+
+* adjust meal selection to exclude exclusions from pick ([08ae100](https://github.com/benwainwright/tnm/commit/08ae1001764c07771d1f8ca756abbd5c4ba493d2))
+
+
+### Bug Fixes
+
+* change planheader so it correctly handles third delivery day ([58877e8](https://github.com/benwainwright/tnm/commit/58877e80cc68711c2d42405d1991f97f005330e8))
+
 ## [1.21.0](https://github.com/benwainwright/tnm/compare/v1.20.1...v1.21.0) (2021-11-23)
 
 
