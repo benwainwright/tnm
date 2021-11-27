@@ -416,6 +416,62 @@ describe("Choose Meals", () => {
     ]);
   });
 
+  it("Where a recipe is tagged with a particular customisation as an exclusion, skips that meal if the customer has that customisation selected", () => {
+    const customerTwoWithExclusion = {
+      ...customerTwo,
+
+      exclusions: [
+        {
+          id: "423",
+          name: "foo",
+          allergen: false
+        }
+      ]
+    };
+
+    const recipeTwoWithExclusion = {
+      ...recipeTwo,
+      invalidExclusions: ["423"]
+    };
+
+    const selection: DeliveryMealsSelection[] = [
+      [
+        recipeOne,
+        recipeTwoWithExclusion,
+        recipeThree,
+        recipeFour,
+        recipeFive,
+        recipeSix
+      ],
+      [
+        recipeSeven,
+        recipeEight,
+        recipeNine,
+        recipeTen,
+        recipeEleven,
+        recipeTwelve
+      ]
+    ];
+
+    const customers: Customer[] = [
+      customerOne,
+      customerTwoWithExclusion,
+      customerThree
+    ];
+    const dates = [new Date(1630702130000), new Date(1630702130000)];
+    const result = chooseMeals(selection, dates, customers);
+
+    const foundExcludedMeal = result[1].deliveries.find(delivery =>
+      typeof delivery !== "string"
+        ? delivery.find(item =>
+            "recipe" in item ? item.recipe === recipeTwoWithExclusion : false
+          )
+        : false
+    );
+
+    expect(foundExcludedMeal).toBeFalsy();
+  });
+
   it("Does not plan the same meals to customer that are next to each other when they have less than six meals on their plan", () => {
     const selection: DeliveryMealsSelection[] = [
       [recipeOne, recipeTwo, recipeThree, recipeFour, recipeFive, recipeSix]
