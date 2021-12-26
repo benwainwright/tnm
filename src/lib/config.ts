@@ -14,7 +14,7 @@ export const planLabels = [
   "Carb Free",
 ] as const;
 
-export const defaultDeliveryDays = ["Monday", "Thursday"];
+export const defaultDeliveryDays = ["Monday", "Wednesday", "Friday"];
 
 export const daysOfWeek = [
   "Sunday",
