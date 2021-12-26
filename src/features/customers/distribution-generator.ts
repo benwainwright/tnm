@@ -9,7 +9,11 @@ import {
   PlanConfiguration,
 } from "./types";
 import { curry, pipe } from "ramda";
-import { extrasLabels, planLabels } from "../../lib/config";
+import {
+  extrasLabels,
+  planLabels,
+  defaultDeliveryDays,
+} from "../../lib/config";
 
 /*
  * Distribute a target item across an arbitrary number of deliveries
@@ -31,11 +35,16 @@ const distributeItems = curry(
       .map(() => targetItem)
       .reduce<Delivery[]>(
         (deliveries, item, index) =>
-          incrementFoundInDeliveries(deliveries, index % 2, section, item),
+          incrementFoundInDeliveries(
+            deliveries,
+            index % defaultDeliveryDays.length,
+            section,
+            item
+          ),
         inputPlan
       )
       .map((delivery, index) =>
-        daysPerWeek === DAYS_IN_WEEK && index === 1
+        daysPerWeek === DAYS_IN_WEEK && index === defaultDeliveryDays.length - 1
           ? incrementTarget(delivery, section, targetItem)
           : delivery
       )
