@@ -1,3 +1,10 @@
+### [1.23.1](https://github.com/benwainwright/tnm/compare/v1.23.0...v1.23.1) (2022-03-05)
+
+
+### Bug Fixes
+
+* add the string 'Use by' to the start of the use by date ([8aa107b](https://github.com/benwainwright/tnm/commit/8aa107b166ab2522c8506c93a3706eae0d54be91))
+
 ## [1.23.0](https://github.com/benwainwright/tnm/compare/v1.22.0...v1.23.0) (2022-03-05)
 
 
