@@ -1,3 +1,10 @@
+### [1.24.1](https://github.com/benwainwright/tnm/compare/v1.24.0...v1.24.1) (2022-03-05)
+
+
+### Bug Fixes
+
+* fixed typo in schema ([7dcaa51](https://github.com/benwainwright/tnm/commit/7dcaa51a502198c062a7736650457f2845d90d5f))
+
 ## [1.24.0](https://github.com/benwainwright/tnm/compare/v1.23.1...v1.24.0) (2022-03-05)
 
 
