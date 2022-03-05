@@ -26,11 +26,17 @@ const Planner: React.FC = () => {
           <DownloadLabelsDialog
             onClose={() => setShowLabelDialog(false)}
             onDownload={(useBy, cook) => {
+              const data = generateLabelData(
+                customerMeals ?? [],
+                useBy,
+                recipes,
+                cook
+              );
+              // eslint-disable-next-line no-console
+              console.log(data);
               setShowLabelDialog(false);
               fileDownload(
-                generateCsvStringFromObjectArray(
-                  generateLabelData(customerMeals ?? [], useBy, recipes, cook)
-                ),
+                generateCsvStringFromObjectArray(data),
                 "labels.csv"
               );
             }}

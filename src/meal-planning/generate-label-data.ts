@@ -35,7 +35,8 @@ const titleCase = (string: string) =>
   string
     .toLocaleLowerCase()
     .split(" ")
-    .map((word) => `${word.slice(0, 1).toLocaleUpperCase()}${word.slice(1)}`);
+    .map((word) => `${word.slice(0, 1).toLocaleUpperCase()}${word.slice(1)}`)
+    .join(" ");
 
 const convertToStringWithLeadingZero = (number: number) => {
   return number < 10 ? `0${number}` : number;
@@ -43,7 +44,7 @@ const convertToStringWithLeadingZero = (number: number) => {
 
 const formatDate = (date: Date) => {
   const year = date.getFullYear();
-  const month = date.getMonth() + 1; // Months start at 0!
+  const month = date.getMonth() + 1;
   const day = date.getDate();
 
   return `${convertToStringWithLeadingZero(
@@ -78,6 +79,7 @@ export const generateLabelData = (
           return {
             ...defaultProps,
             ...item.recipe,
+            hotOrCold: `Enjoy ${item.recipe.hotOrCold}`,
             itemPlan: item.chosenVariant,
             variantString: variant.string,
             mealLabelString: variant.mealWithVariantString,
