@@ -1,3 +1,15 @@
+## [1.24.0](https://github.com/benwainwright/tnm/compare/v1.23.1...v1.24.0) (2022-03-05)
+
+
+### Features
+
+* add allergens field ([a2cb78f](https://github.com/benwainwright/tnm/commit/a2cb78ffe33ca572d6d78700ae990a18a1c12fa9))
+
+
+### Bug Fixes
+
+* field should not be required ([6fe6497](https://github.com/benwainwright/tnm/commit/6fe649753bc516813031e4f932f9019ce0f81441))
+
 ### [1.23.1](https://github.com/benwainwright/tnm/compare/v1.23.0...v1.23.1) (2022-03-05)
 
 
