@@ -6,7 +6,7 @@ interface PlanHeaderProps {
   deliveryDays: string[];
 }
 
-const PlanHeader: FC<PlanHeaderProps> = props => (
+const PlanHeader: FC<PlanHeaderProps> = (props) => (
   <TableHeader>
     <TableRow>
       <TableCell scope="col">

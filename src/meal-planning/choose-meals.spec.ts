@@ -10,7 +10,7 @@ const recipeOne: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "foo",
   name: "foo-recipe",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeTwo: Recipe = {
@@ -18,7 +18,7 @@ const recipeTwo: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "bar",
   name: "bar-recipe",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeThree: Recipe = {
@@ -26,7 +26,7 @@ const recipeThree: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "baz",
   name: "baz-recipe",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeFour: Recipe = {
@@ -34,7 +34,7 @@ const recipeFour: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "bap",
   name: "bap-recipe",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeFive: Recipe = {
@@ -42,7 +42,7 @@ const recipeFive: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "balls",
   name: "balls-recipe",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeSix: Recipe = {
@@ -50,7 +50,7 @@ const recipeSix: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "balls",
   name: "balls-recipe",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeSeven: Recipe = {
@@ -58,7 +58,7 @@ const recipeSeven: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "foo-two",
   name: "foo-two-recipe",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeEight: Recipe = {
@@ -66,7 +66,7 @@ const recipeEight: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "bar-two",
   name: "bar-recipe-two",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeNine: Recipe = {
@@ -74,7 +74,7 @@ const recipeNine: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "baz-two",
   name: "baz-recipe-two",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeTen: Recipe = {
@@ -82,7 +82,7 @@ const recipeTen: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "bap-two",
   name: "bap-recipe-two",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeEleven: Recipe = {
@@ -90,7 +90,7 @@ const recipeEleven: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "balls-two",
   name: "balls-recipe-two",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const recipeTwelve: Recipe = {
@@ -98,7 +98,7 @@ const recipeTwelve: Recipe = {
   hotOrCold: HotOrCold.Hot,
   shortName: "balls-two",
   name: "balls-recipe-two",
-  potentialExclusions: []
+  potentialExclusions: [],
 };
 
 const customerOne: Customer = {
@@ -116,28 +116,28 @@ const customerOne: Customer = {
     name: "Mass 5",
     category: "Mass",
     mealsPerDay: 5,
-    costPerMeal: 885
+    costPerMeal: 885,
   },
   newPlan: {
     deliveries: [
       {
         items: [
           { name: "EQ", quantity: 5 },
-          { name: "Mass", quantity: 3 }
+          { name: "Mass", quantity: 3 },
         ],
-        extras: []
+        extras: [],
       },
       {
         items: [
           { name: "EQ", quantity: 3 },
-          { name: "Mass", quantity: 5 }
+          { name: "Mass", quantity: 5 },
         ],
-        extras: []
-      }
+        extras: [],
+      },
     ],
-    configuration: mock<PlanConfiguration>()
+    configuration: mock<PlanConfiguration>(),
   },
-  exclusions: []
+  exclusions: [],
 };
 
 const customerTwo: Customer = {
@@ -156,28 +156,28 @@ const customerTwo: Customer = {
     name: "Mass 5",
     category: "Mass",
     mealsPerDay: 5,
-    costPerMeal: 885
+    costPerMeal: 885,
   },
   newPlan: {
     deliveries: [
       {
         items: [
           { name: "EQ", quantity: 5 },
-          { name: "Micro", quantity: 5 }
+          { name: "Micro", quantity: 5 },
         ],
-        extras: [{ name: "Breakfast", quantity: 5 }]
+        extras: [{ name: "Breakfast", quantity: 5 }],
       },
       {
         items: [
           { name: "EQ", quantity: 5 },
-          { name: "Mass", quantity: 5 }
+          { name: "Mass", quantity: 5 },
         ],
-        extras: [{ name: "Breakfast", quantity: 5 }]
-      }
+        extras: [{ name: "Breakfast", quantity: 5 }],
+      },
     ],
-    configuration: mock<PlanConfiguration>()
+    configuration: mock<PlanConfiguration>(),
   },
-  exclusions: []
+  exclusions: [],
 };
 
 const customerThree: Customer = {
@@ -196,27 +196,27 @@ const customerThree: Customer = {
     name: "Mass 2",
     category: "Mass",
     mealsPerDay: 2,
-    costPerMeal: 885
+    costPerMeal: 885,
   },
   newPlan: {
     deliveries: [
       {
         items: [
           { name: "EQ", quantity: 5 },
-          { name: "Micro", quantity: 5 }
+          { name: "Micro", quantity: 5 },
         ],
-        extras: [{ name: "Breakfast", quantity: 5 }]
+        extras: [{ name: "Breakfast", quantity: 5 }],
       },
       {
         items: [
           { name: "EQ", quantity: 5 },
-          { name: "Mass", quantity: 5 }
+          { name: "Mass", quantity: 5 },
         ],
-        extras: [{ name: "Large Snack", quantity: 4 }]
-      }
+        extras: [{ name: "Large Snack", quantity: 4 }],
+      },
     ],
-    configuration: mock<PlanConfiguration>()
-  }
+    configuration: mock<PlanConfiguration>(),
+  },
 };
 
 describe("Choose Meals", () => {
@@ -229,8 +229,8 @@ describe("Choose Meals", () => {
         recipeNine,
         recipeTen,
         recipeEleven,
-        recipeTwelve
-      ]
+        recipeTwelve,
+      ],
     ];
 
     const customers: Customer[] = [customerOne, customerTwo, customerThree];
@@ -251,8 +251,8 @@ describe("Choose Meals", () => {
         recipeNine,
         recipeTen,
         recipeEleven,
-        recipeTwelve
-      ]
+        recipeTwelve,
+      ],
     ];
 
     const inActiveCustomerTwo = {
@@ -261,13 +261,13 @@ describe("Choose Meals", () => {
       pauseStart: new Date(1583020800000).toISOString(),
 
       // Oct 05 2036
-      pauseEnd: new Date(2106780800000).toISOString()
+      pauseEnd: new Date(2106780800000).toISOString(),
     };
 
     const customers: Customer[] = [
       customerOne,
       inActiveCustomerTwo,
-      customerThree
+      customerThree,
     ];
     const dates = [new Date(1582922930000), new Date(1588103330000)];
     const result = chooseMeals(selection, dates, customers);
@@ -289,8 +289,8 @@ describe("Choose Meals", () => {
         recipeNine,
         recipeTen,
         recipeEleven,
-        recipeTwelve
-      ]
+        recipeTwelve,
+      ],
     ];
 
     const customers: Customer[] = [customerOne, customerTwo, customerThree];
@@ -318,8 +318,8 @@ describe("Choose Meals", () => {
         recipeNine,
         recipeTen,
         recipeEleven,
-        recipeTwelve
-      ]
+        recipeTwelve,
+      ],
     ];
 
     const customers: Customer[] = [customerOne, customerTwo, customerThree];
@@ -330,37 +330,37 @@ describe("Choose Meals", () => {
       Array.isArray(result[0].deliveries[0]) && result[0].deliveries[0][0]
     ).toEqual({
       chosenVariant: expect.anything(),
-      recipe: recipeOne
+      recipe: recipeOne,
     });
     expect(
       Array.isArray(result[0].deliveries[0]) && result[0].deliveries[0][3]
     ).toEqual({
       chosenVariant: expect.anything(),
-      recipe: recipeFour
+      recipe: recipeFour,
     });
     expect(
       Array.isArray(result[0].deliveries[0]) && result[0].deliveries[0][7]
     ).toEqual({
       chosenVariant: expect.anything(),
-      recipe: recipeTwo
+      recipe: recipeTwo,
     });
     expect(
       Array.isArray(result[0].deliveries[1]) && result[0].deliveries[1][0]
     ).toEqual({
       chosenVariant: expect.anything(),
-      recipe: recipeSeven
+      recipe: recipeSeven,
     });
     expect(
       Array.isArray(result[0].deliveries[1]) && result[0].deliveries[1][2]
     ).toEqual({
       chosenVariant: expect.anything(),
-      recipe: recipeNine
+      recipe: recipeNine,
     });
     expect(
       Array.isArray(result[0].deliveries[1]) && result[0].deliveries[1][6]
     ).toEqual({
       chosenVariant: expect.anything(),
-      recipe: recipeSeven
+      recipe: recipeSeven,
     });
   });
 
@@ -373,8 +373,8 @@ describe("Choose Meals", () => {
         recipeNine,
         recipeTen,
         recipeEleven,
-        recipeTwelve
-      ]
+        recipeTwelve,
+      ],
     ];
 
     const customers: Customer[] = [customerOne, customerTwo, customerThree];
@@ -383,7 +383,7 @@ describe("Choose Meals", () => {
 
     const variants =
       Array.isArray(result[0].deliveries[0]) &&
-      result[0].deliveries[0].map(item => item.chosenVariant);
+      result[0].deliveries[0].map((item) => item.chosenVariant);
     expect(variants).toEqual([
       "EQ",
       "EQ",
@@ -392,12 +392,12 @@ describe("Choose Meals", () => {
       "EQ",
       "Mass",
       "Mass",
-      "Mass"
+      "Mass",
     ]);
 
     const variants2 =
       Array.isArray(result[2].deliveries[1]) &&
-      result[2].deliveries[1].map(item => item.chosenVariant);
+      result[2].deliveries[1].map((item) => item.chosenVariant);
     expect(variants2).toEqual([
       "EQ",
       "EQ",
@@ -412,7 +412,7 @@ describe("Choose Meals", () => {
       "Large Snack",
       "Large Snack",
       "Large Snack",
-      "Large Snack"
+      "Large Snack",
     ]);
   });
 
@@ -424,14 +424,14 @@ describe("Choose Meals", () => {
         {
           id: "423",
           name: "foo",
-          allergen: false
-        }
-      ]
+          allergen: false,
+        },
+      ],
     };
 
     const recipeTwoWithExclusion = {
       ...recipeTwo,
-      invalidExclusions: ["423"]
+      invalidExclusions: ["423"],
     };
 
     const selection: DeliveryMealsSelection[] = [
@@ -441,7 +441,7 @@ describe("Choose Meals", () => {
         recipeThree,
         recipeFour,
         recipeFive,
-        recipeSix
+        recipeSix,
       ],
       [
         recipeSeven,
@@ -449,21 +449,21 @@ describe("Choose Meals", () => {
         recipeNine,
         recipeTen,
         recipeEleven,
-        recipeTwelve
-      ]
+        recipeTwelve,
+      ],
     ];
 
     const customers: Customer[] = [
       customerOne,
       customerTwoWithExclusion,
-      customerThree
+      customerThree,
     ];
     const dates = [new Date(1630702130000), new Date(1630702130000)];
     const result = chooseMeals(selection, dates, customers);
 
-    const foundExcludedMeal = result[1].deliveries.find(delivery =>
+    const foundExcludedMeal = result[1].deliveries.find((delivery) =>
       typeof delivery !== "string"
-        ? delivery.find(item =>
+        ? delivery.find((item) =>
             "recipe" in item ? item.recipe === recipeTwoWithExclusion : false
           )
         : false
@@ -474,7 +474,7 @@ describe("Choose Meals", () => {
 
   it("Does not plan the same meals to customer that are next to each other when they have less than six meals on their plan", () => {
     const selection: DeliveryMealsSelection[] = [
-      [recipeOne, recipeTwo, recipeThree, recipeFour, recipeFive, recipeSix]
+      [recipeOne, recipeTwo, recipeThree, recipeFour, recipeFive, recipeSix],
     ];
 
     const sparseCustomerOne: Customer = {
@@ -484,11 +484,11 @@ describe("Choose Meals", () => {
         deliveries: [
           {
             items: [{ name: "EQ", quantity: 2 }],
-            extras: []
-          }
+            extras: [],
+          },
         ],
-        configuration: mock<PlanConfiguration>()
-      }
+        configuration: mock<PlanConfiguration>(),
+      },
     };
 
     const sparseCustomerTwo: Customer = {
@@ -498,11 +498,11 @@ describe("Choose Meals", () => {
         deliveries: [
           {
             items: [{ name: "EQ", quantity: 2 }],
-            extras: []
-          }
+            extras: [],
+          },
         ],
-        configuration: mock<PlanConfiguration>()
-      }
+        configuration: mock<PlanConfiguration>(),
+      },
     };
 
     const customers: Customer[] = [sparseCustomerOne, sparseCustomerTwo];
@@ -514,7 +514,7 @@ describe("Choose Meals", () => {
       Array.isArray(result[1].deliveries[0]) && result[1].deliveries[0][0]
     ).toEqual({
       chosenVariant: expect.anything(),
-      recipe: recipeThree
+      recipe: recipeThree,
     });
   });
 });

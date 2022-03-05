@@ -9,7 +9,7 @@ const stringifyKeys = <T extends Record<string, unknown>>(thing: T) =>
   Object.fromEntries(
     Object.entries(thing).map(([entry, value]) => [
       entry,
-      stringifyValue(value)
+      stringifyValue(value),
     ])
   );
 
@@ -28,41 +28,66 @@ const normalize = <T extends Record<string, unknown>>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { id, ...rest } = removeNonStringValues(stringifyKeys(thing));
 
-  // eslint-disable-next-line no-console
-  console.log(rest);
-
   return rest;
+};
+
+const titleCase = (string: string) =>
+  string
+    .toLocaleLowerCase()
+    .split(" ")
+    .map((word) => `${word.slice(0, 1).toLocaleUpperCase()}${word.slice(1)}`);
+
+const convertToStringWithLeadingZero = (number: number) => {
+  return number < 10 ? `0${number}` : number;
+};
+
+const formatDate = (date: Date) => {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1; // Months start at 0!
+  const day = date.getDate();
+
+  return `${convertToStringWithLeadingZero(
+    day
+  )}/${convertToStringWithLeadingZero(month)}/${year}`;
 };
 
 export const generateLabelData = (
   selections: CustomerMealsSelection,
+  useByDate: Date,
   allMeals: Recipe[],
   deliveryNumber: number
 ): ReadonlyArray<Record<string, string>> =>
   selections
-    .flatMap(selection => {
+    .flatMap((selection) => {
       const delivery = selection.deliveries[deliveryNumber];
 
       if (typeof delivery === "string") {
         return [];
       }
 
-      return delivery.map(item => {
+      return delivery.map((item) => {
+        const defaultProps = {
+          ...selection.customer,
+          useBy: formatDate(useByDate),
+          customerName: titleCase(
+            `${selection.customer.firstName} ${selection.customer.surname}`
+          ),
+        };
         if (isSelectedMeal(item)) {
           const variant = createVariant(selection.customer, item, allMeals);
           return {
-            ...selection.customer,
+            ...defaultProps,
             ...item.recipe,
             itemPlan: item.chosenVariant,
             variantString: variant.string,
             mealLabelString: variant.mealWithVariantString,
-            mealName: item.recipe.name
+            mealName: titleCase(item.recipe.name),
           };
         }
         return {
-          ...selection.customer,
-          mealName: item.chosenVariant,
-          itemPlan: "extra"
+          ...defaultProps,
+          mealName: titleCase(item.chosenVariant),
+          itemPlan: "extra",
         };
       });
     })

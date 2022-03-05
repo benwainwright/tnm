@@ -25,17 +25,17 @@ export class PdfTable {
       ...batchArray(row, this.columns)
         .map((mapRow, index, array) => ({
           rowSpan: array.length,
-          mapRow
+          mapRow,
         }))
         .map(({ mapRow, rowSpan }) => [
           { rowSpan, text: headerCell },
-          ...mapRow
+          ...mapRow,
         ])
-        .map(mapRow =>
+        .map((mapRow) =>
           mapRow.length < this.columns + 1
             ? [
                 ...mapRow,
-                ...this.makeFillerCells(this.columns - mapRow.length + 1)
+                ...this.makeFillerCells(this.columns - mapRow.length + 1),
               ]
             : mapRow
         )
@@ -49,7 +49,7 @@ export class PdfTable {
       body: this.content,
       keepWithHeaderRows: 0,
       headerRows: this.headerRows,
-      dontBreakRows: true
+      dontBreakRows: true,
     };
   }
 }

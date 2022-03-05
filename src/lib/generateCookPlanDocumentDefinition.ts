@@ -14,7 +14,7 @@ const generateCookPlanDocumentDefinition = (
     weekday: "long",
     year: "numeric",
     month: "long",
-    day: "numeric"
+    day: "numeric",
   };
 
   const date = new Date(Date.now());
@@ -29,13 +29,13 @@ const generateCookPlanDocumentDefinition = (
     const items = Object.keys(map)
       .slice()
       // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-      .filter(key => map[key].customisation)
-      .flatMap(key =>
-        map[key].customers.map(customer => ({
+      .filter((key) => map[key].customisation)
+      .flatMap((key) =>
+        map[key].customers.map((customer) => ({
           string: `${key} - ${customer.surname}, ${customer.firstName}`,
           customer,
           item: map[key],
-          key
+          key,
         }))
       )
       .reduce<
@@ -48,7 +48,7 @@ const generateCookPlanDocumentDefinition = (
         }[]
       >((accum, item) => {
         const found = accum.find(
-          reducedItem => reducedItem.string === item.string
+          (reducedItem) => reducedItem.string === item.string
         );
         if (found) {
           found.count++;
@@ -58,8 +58,8 @@ const generateCookPlanDocumentDefinition = (
             ...accum,
             {
               count: 1,
-              ...item
-            }
+              ...item,
+            },
           ];
         }
       }, [])
@@ -69,7 +69,7 @@ const generateCookPlanDocumentDefinition = (
         }
         return a.string > b.string ? 1 : -1;
       })
-      .map(item =>
+      .map((item) =>
         formatPlanItem(
           `${item.key}${getCountString(item.count)} - ${
             item.customer.surname
@@ -78,7 +78,7 @@ const generateCookPlanDocumentDefinition = (
         )
       );
     return {
-      ul: items
+      ul: items,
     };
   };
 
@@ -91,16 +91,16 @@ const generateCookPlanDocumentDefinition = (
     ul: Object.keys(map)
       .slice()
       // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-      .filter(key => !map[key].customisation)
+      .filter((key) => !map[key].customisation)
       .sort((a, b) => (a > b ? 1 : -1))
-      .map(key => formatPlanItem(`${key} x ${map[key].count}`, map[key]))
+      .map((key) => formatPlanItem(`${key} x ${map[key].count}`, map[key])),
   });
 
   const makeLabelCell = (name: string, map: RecipeVariantMap) => [
     {
       text: `${name} (x ${totalMeals(map)})`,
-      style: "rowHeader"
-    }
+      style: "rowHeader",
+    },
   ];
 
   const convertPlanToRows = (
@@ -110,7 +110,7 @@ const generateCookPlanDocumentDefinition = (
     return all.map(([recipeName, value]) => [
       makeLabelCell(recipeName, value),
       formatRecipeVariantMapNoCustomisationsCell(value),
-      formatRecipeVariantMapCustomisationsCell(value)
+      formatRecipeVariantMapCustomisationsCell(value),
     ]);
   };
 

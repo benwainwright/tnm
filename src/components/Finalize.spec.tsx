@@ -51,7 +51,7 @@ test("the finalize component displays the customer name at the top of each table
     mealsPerDay: 3,
     totalPlans: 1,
     deliveryDays: [],
-    extrasChosen: []
+    extrasChosen: [],
   };
 
   mockPlan.deliveries = [];
@@ -182,7 +182,7 @@ test("the finalize component displays at least one labelled row for each deliver
     mealsPerDay: 3,
     totalPlans: 1,
     deliveryDays: [],
-    extrasChosen: []
+    extrasChosen: [],
   };
 
   mockPlan.deliveries = [];
@@ -313,7 +313,7 @@ test("The finalize component breaks rows that are longer than six items into mul
     mealsPerDay: 3,
     totalPlans: 1,
     deliveryDays: [],
-    extrasChosen: []
+    extrasChosen: [],
   };
 
   mockPlan.deliveries = [];
@@ -464,7 +464,7 @@ test("The finalize component does not display the string 'multiple' in any of th
     mealsPerDay: 3,
     totalPlans: 1,
     deliveryDays: [],
-    extrasChosen: []
+    extrasChosen: [],
   };
 
   mockPlan.deliveries = [];
@@ -587,7 +587,7 @@ test("The finalize component displays the selected meals for the customer is the
     mealsPerDay: 3,
     totalPlans: 1,
     deliveryDays: [],
-    extrasChosen: []
+    extrasChosen: [],
   };
 
   mockPlan.deliveries = [];

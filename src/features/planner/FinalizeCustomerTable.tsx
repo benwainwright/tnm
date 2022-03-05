@@ -7,7 +7,7 @@ import {
   TableBody,
   TableHeader,
   Button,
-  Box
+  Box,
 } from "grommet";
 import { FormAdd } from "grommet-icons";
 import { CustomerMealsSelection } from "../../meal-planning";
@@ -25,7 +25,7 @@ import { getPlanString } from "../../lib/get-plan-string";
 import {
   defaultDeliveryDays,
   extrasLabels,
-  planLabels
+  planLabels,
 } from "../../lib/config";
 
 interface FinalizeRowProps {
@@ -42,7 +42,7 @@ const AlternatingTableRow = styled(TableRow)`
   }
 `;
 
-const FinalizeCustomerTableUnMemoized: React.FC<FinalizeRowProps> = props => {
+const FinalizeCustomerTableUnMemoized: React.FC<FinalizeRowProps> = (props) => {
   const name = `${props.customerSelection.customer.firstName} ${props.customerSelection.customer.surname}`;
 
   const deliveries = props.customerSelection.deliveries ?? [];
@@ -52,7 +52,7 @@ const FinalizeCustomerTableUnMemoized: React.FC<FinalizeRowProps> = props => {
       getPlanString(props.customerSelection.customer.newPlan, {
         planLabels: [...planLabels],
         extrasLabels: [...extrasLabels],
-        defaultDeliveryDays: [...defaultDeliveryDays]
+        defaultDeliveryDays: [...defaultDeliveryDays],
       }),
     [props.customerSelection.customer.newPlan]
   );
@@ -115,11 +115,11 @@ const FinalizeCustomerTableUnMemoized: React.FC<FinalizeRowProps> = props => {
                     dispatch(
                       addAdHoc({
                         customer: props.customerSelection.customer,
-                        deliveryIndex
+                        deliveryIndex,
                       })
                     )
                   }
-                />
+                />,
               ],
               props.columns
             ).map((row, batchIndex) => (

@@ -7,7 +7,7 @@ import type {
   SelectedMeal,
   CustomerMealsSelection,
   Delivery,
-  SelectedItem
+  SelectedItem,
 } from "./types";
 
 // eslint-disable-next-line no-duplicate-imports
@@ -20,5 +20,5 @@ export {
   generateLabelData,
   makeCookPlan,
   createVariant,
-  isSelectedMeal
+  isSelectedMeal,
 };

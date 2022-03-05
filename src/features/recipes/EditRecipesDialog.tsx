@@ -43,9 +43,9 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
 
   const formRecipe = {
     ...recipe,
-    invalidExclusions: recipe.invalidExclusions?.map(exclusionId =>
-      exclusions.find(otherExclusion => otherExclusion.id === exclusionId)
-    )
+    invalidExclusions: recipe.invalidExclusions?.map((exclusionId) =>
+      exclusions.find((otherExclusion) => otherExclusion.id === exclusionId)
+    ),
   };
 
   return (
@@ -64,7 +64,7 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
                 nextRecipeData.invalidExclusions?.map(
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   (exclusion: any) => exclusion.id
-                ) ?? []
+                ) ?? [],
             };
             setRecipe(stateRecipe);
           }}

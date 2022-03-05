@@ -19,7 +19,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "foo",
       name: "foo-recipe",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeTwo: Recipe = {
@@ -27,7 +27,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "bar",
       name: "bar-recipe",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeThree: Recipe = {
@@ -35,7 +35,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "baz",
       name: "baz-recipe",
-      potentialExclusions: [noCheese]
+      potentialExclusions: [noCheese],
     };
 
     const recipeFour: Recipe = {
@@ -43,7 +43,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "bap",
       name: "bap-recipe",
-      potentialExclusions: [noCheese]
+      potentialExclusions: [noCheese],
     };
 
     const recipeFive: Recipe = {
@@ -51,7 +51,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "balls",
       name: "balls-recipe",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeSix: Recipe = {
@@ -59,7 +59,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "balls",
       name: "balls-recipe",
-      potentialExclusions: [noCheese, noTuna]
+      potentialExclusions: [noCheese, noTuna],
     };
 
     const recipeSeven: Recipe = {
@@ -67,7 +67,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "foo-two",
       name: "foo-two-recipe",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeEight: Recipe = {
@@ -75,7 +75,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "bar-two",
       name: "bar-recipe-two",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeNine: Recipe = {
@@ -83,7 +83,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "baz-two",
       name: "baz-recipe-two",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeTen: Recipe = {
@@ -91,7 +91,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "bap-two",
       name: "bap-recipe-two",
-      potentialExclusions: [noCheese]
+      potentialExclusions: [noCheese],
     };
 
     const recipeEleven: Recipe = {
@@ -99,7 +99,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "balls-two",
       name: "balls-recipe-two",
-      potentialExclusions: [noTuna]
+      potentialExclusions: [noTuna],
     };
 
     const recipeTwelve: Recipe = {
@@ -107,7 +107,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "balls-two",
       name: "balls-recipe-two",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
     const mockCustomer1 = mock<Customer>();
     mockCustomer1.exclusions = [noCheese];
@@ -125,40 +125,40 @@ describe("make cook plan", () => {
           [
             {
               recipe: recipeOne,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeTwo,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeThree,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeFour,
-              chosenVariant: "EQ"
-            }
+              chosenVariant: "EQ",
+            },
           ],
           [
             {
               recipe: recipeOne,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeTwo,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeThree,
-              chosenVariant: "Mass"
+              chosenVariant: "Mass",
             },
             {
               recipe: recipeFour,
-              chosenVariant: "EQ"
-            }
-          ]
-        ]
+              chosenVariant: "EQ",
+            },
+          ],
+        ],
       },
       {
         customer: mockCustomer2,
@@ -166,43 +166,43 @@ describe("make cook plan", () => {
           [
             {
               recipe: recipeThree,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeFour,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeFive,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeSix,
-              chosenVariant: "EQ"
-            }
+              chosenVariant: "EQ",
+            },
           ],
           [
             {
               recipe: recipeThree,
-              chosenVariant: "Micro"
+              chosenVariant: "Micro",
             },
             {
               recipe: recipeFour,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeFive,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
-              chosenVariant: "Breakfast"
+              chosenVariant: "Breakfast",
             },
             {
               recipe: recipeSix,
-              chosenVariant: "EQ"
-            }
-          ]
-        ]
+              chosenVariant: "EQ",
+            },
+          ],
+        ],
       },
       {
         customer: mockCustomer3,
@@ -210,39 +210,39 @@ describe("make cook plan", () => {
           [
             {
               recipe: recipeThree,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeSeven,
-              chosenVariant: "Mass"
+              chosenVariant: "Mass",
             },
             {
-              chosenVariant: "Breakfast"
+              chosenVariant: "Breakfast",
             },
             {
               recipe: recipeNine,
-              chosenVariant: "EQ"
-            }
+              chosenVariant: "EQ",
+            },
           ],
           [
             {
               recipe: recipeThree,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
               recipe: recipeSeven,
-              chosenVariant: "Mass"
+              chosenVariant: "Mass",
             },
             {
               recipe: recipeEight,
-              chosenVariant: "EQ"
+              chosenVariant: "EQ",
             },
             {
-              chosenVariant: "Breakfast"
-            }
-          ]
-        ]
-      }
+              chosenVariant: "Breakfast",
+            },
+          ],
+        ],
+      },
     ];
 
     const [dayOne, dayTwo] = makeCookPlan(selection, [
@@ -257,7 +257,7 @@ describe("make cook plan", () => {
       recipeNine,
       recipeTen,
       recipeEleven,
-      recipeTwelve
+      recipeTwelve,
     ]);
 
     expect(
@@ -268,15 +268,15 @@ describe("make cook plan", () => {
 
     expect(dayOne.get("baz-recipe")?.["EQ (No cheese)"].customers).toEqual([
       mockCustomer1,
-      mockCustomer2
+      mockCustomer2,
     ]);
 
     expect(dayTwo.get("baz-recipe")?.["Mass (No cheese)"].customers).toEqual([
-      mockCustomer1
+      mockCustomer1,
     ]);
 
     expect(dayTwo.get("baz-recipe")?.["Micro (No cheese)"].customers).toEqual([
-      mockCustomer2
+      mockCustomer2,
     ]);
   });
 
@@ -294,7 +294,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "foo",
       name: "foo-recipe",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeTwo: Recipe = {
@@ -302,7 +302,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "bar",
       name: "bar-recipe",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeThree: Recipe = {
@@ -310,7 +310,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "baz",
       name: "baz-recipe",
-      potentialExclusions: [noCheese]
+      potentialExclusions: [noCheese],
     };
 
     const recipeFour: Recipe = {
@@ -318,7 +318,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "bap",
       name: "bap-recipe",
-      potentialExclusions: [noCheese]
+      potentialExclusions: [noCheese],
     };
 
     const recipeFive: Recipe = {
@@ -326,7 +326,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "balls",
       name: "balls-recipe",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeSix: Recipe = {
@@ -334,7 +334,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "balls",
       name: "balls-recipe",
-      potentialExclusions: [noCheese, noTuna]
+      potentialExclusions: [noCheese, noTuna],
     };
 
     const recipeSeven: Recipe = {
@@ -342,7 +342,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "foo-two",
       name: "foo-two-recipe",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeEight: Recipe = {
@@ -350,7 +350,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "bar-two",
       name: "bar-recipe-two",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeNine: Recipe = {
@@ -358,7 +358,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "baz-two",
       name: "baz-recipe-two",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
 
     const recipeTen: Recipe = {
@@ -366,7 +366,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "bap-two",
       name: "bap-recipe-two",
-      potentialExclusions: [noCheese]
+      potentialExclusions: [noCheese],
     };
 
     const recipeEleven: Recipe = {
@@ -374,7 +374,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "balls-two",
       name: "balls-recipe-two",
-      potentialExclusions: [noTuna]
+      potentialExclusions: [noTuna],
     };
 
     const recipeTwelve: Recipe = {
@@ -382,7 +382,7 @@ describe("make cook plan", () => {
       hotOrCold: HotOrCold.Hot,
       shortName: "balls-two",
       name: "balls-recipe-two",
-      potentialExclusions: []
+      potentialExclusions: [],
     };
     const mockCustomer1 = mock<Customer>();
     mockCustomer1.exclusions = [noCheese];
@@ -396,7 +396,7 @@ describe("make cook plan", () => {
     const selection = [
       {
         customer: mockCustomer1,
-        deliveries: [[], []]
+        deliveries: [[], []],
       },
       {
         customer: mockCustomer2,
@@ -404,26 +404,26 @@ describe("make cook plan", () => {
           [],
           [
             {
-              chosenVariant: "Breakfast"
-            }
-          ]
-        ]
+              chosenVariant: "Breakfast",
+            },
+          ],
+        ],
       },
       {
         customer: mockCustomer3,
         deliveries: [
           [
             {
-              chosenVariant: "Breakfast"
-            }
+              chosenVariant: "Breakfast",
+            },
           ],
           [
             {
-              chosenVariant: "Breakfast"
-            }
-          ]
-        ]
-      }
+              chosenVariant: "Breakfast",
+            },
+          ],
+        ],
+      },
     ];
 
     const [dayOne, dayTwo] = makeCookPlan(selection, [
@@ -438,12 +438,12 @@ describe("make cook plan", () => {
       recipeNine,
       recipeTen,
       recipeEleven,
-      recipeTwelve
+      recipeTwelve,
     ]);
 
     expect(dayOne.get("Breakfast")?.["Breakfast"].count).toEqual(1);
     expect(dayOne.get("Breakfast")?.["Breakfast"].customers).toEqual([
-      mockCustomer3
+      mockCustomer3,
     ]);
     expect(dayTwo.get("Breakfast")?.["Breakfast"].count).toEqual(2);
   });

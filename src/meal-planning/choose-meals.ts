@@ -8,9 +8,9 @@ import DeliveryMealsSelection from "../types/DeliveryMealsSelection";
 import { CustomerMealsSelection, SelectedItem } from "./types";
 
 const isExcluded = (recipe: Recipe, customer: Customer) => {
-  return recipe.invalidExclusions?.some(invalidExclusion =>
+  return recipe.invalidExclusions?.some((invalidExclusion) =>
     customer.exclusions
-      .map(customerExclusion => customerExclusion.id)
+      .map((customerExclusion) => customerExclusion.id)
       .includes(invalidExclusion)
   );
 };
@@ -21,7 +21,7 @@ const getRecipeFromSelection = (
   deliverySelection: DeliveryMealsSelection
 ): Recipe => {
   const actualDeliverySelection = deliverySelection.filter(
-    recipe => !isExcluded(recipe, customer)
+    (recipe) => !isExcluded(recipe, customer)
   );
 
   const excluded = deliverySelection.length - actualDeliverySelection.length;
@@ -39,7 +39,7 @@ const generateDeliveryListFromItem = <
   item: Item<T>
 ) =>
   [...new Array(item.quantity)].map(() => ({
-    chosenVariant: item.name
+    chosenVariant: item.name,
   }));
 
 const generateDeliveries = (
@@ -55,21 +55,23 @@ const generateDeliveries = (
       (delivery, deliveryIndex): SelectedItem[] => {
         const itemList = [
           ...delivery.items
-            .flatMap(item => generateDeliveryListFromItem(item))
+            .flatMap((item) => generateDeliveryListFromItem(item))
             .map((item, index) => ({
               ...item,
               recipe: getRecipeFromSelection(
                 index + startPositions[deliveryIndex],
                 customer,
                 deliverySelections[deliveryIndex]
-              )
+              ),
             })),
-          ...delivery.extras.flatMap(item => generateDeliveryListFromItem(item))
+          ...delivery.extras.flatMap((item) =>
+            generateDeliveryListFromItem(item)
+          ),
         ];
         newStartPositions[deliveryIndex] += itemList.length;
         return itemList;
       }
-    )
+    ),
   };
 };
 
@@ -85,9 +87,9 @@ export const chooseMeals = (
 ): CustomerMealsSelection =>
   customers
     .filter(hasPlan)
-    .map(customer => ({
+    .map((customer) => ({
       customer,
-      startPositions: deliverySelection.map(() => 0)
+      startPositions: deliverySelection.map(() => 0),
     }))
     .reduce<
       {
@@ -106,8 +108,8 @@ export const chooseMeals = (
         ...accum,
         {
           ...customer,
-          ...deliveries
-        }
+          ...deliveries,
+        },
       ];
     }, [])
     .map(({ customer, deliveries }) => ({
@@ -116,5 +118,5 @@ export const chooseMeals = (
         isActive(customer, cookDates[index])
           ? delivery
           : getStatusString(customer, cookDates[index])
-      )
+      ),
     }));
