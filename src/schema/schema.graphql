@@ -75,6 +75,7 @@ type Recipe {
   hotOrCold: String!
   shortName: String!
   description: String
+  allertens: String
   invalidExclusions: [ID!]
   potentialExclusions: [Exclusion!]!
 }
@@ -84,6 +85,7 @@ input UpdateRecipeInput {
   hotOrCold: String!
   shortName: String!
   name: String!
+  allergens: String
   description: String
   invalidExclusions: [ID!]
   exclusionIds: [ID!]!

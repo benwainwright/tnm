@@ -91,6 +91,9 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
                 name="hotOrCold"
               />
             </FormField>
+            <FormField name="allergens" label="Allergens" required>
+              <TextInput name="allergens" />
+            </FormField>
             <FormField name="potentialExclusions" label="Customisations">
               <Select
                 multiple
