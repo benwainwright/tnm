@@ -1,3 +1,11 @@
+## [1.23.0](https://github.com/benwainwright/tnm/compare/v1.22.0...v1.23.0) (2022-03-05)
+
+
+### Features
+
+* add label tweaks ([388dec7](https://github.com/benwainwright/tnm/commit/388dec7a72033f34fcf368091964ad0132ee9a34))
+* add labels dialog and formatted code ([777462d](https://github.com/benwainwright/tnm/commit/777462dd333e89a951a4c5e70374ad0981170e73))
+
 ## [1.22.0](https://github.com/benwainwright/tnm/compare/v1.21.0...v1.22.0) (2021-11-27)
 
 
