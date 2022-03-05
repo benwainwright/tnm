@@ -75,7 +75,7 @@ type Recipe {
   hotOrCold: String!
   shortName: String!
   description: String
-  allertens: String
+  allergens: String
   invalidExclusions: [ID!]
   potentialExclusions: [Exclusion!]!
 }
