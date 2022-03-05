@@ -69,7 +69,7 @@ export const generateLabelData = (
       return delivery.map((item) => {
         const defaultProps = {
           ...selection.customer,
-          useBy: formatDate(useByDate),
+          useBy: `Use by ${formatDate(useByDate)}`,
           customerName: titleCase(
             `${selection.customer.firstName} ${selection.customer.surname}`
           ),
