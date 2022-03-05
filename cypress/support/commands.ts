@@ -28,8 +28,8 @@ const configureCognitoAndSignIn = async (
     Auth: {
       region: "us-east-1",
       userPoolId: config.UserPoolId,
-      userPoolWebClientId: config.ClientId
-    }
+      userPoolWebClientId: config.ClientId,
+    },
   });
   return Auth.signIn({ username, password });
 };
@@ -46,7 +46,7 @@ const createCustomisation = (name, allergen) => {
 
   cy.intercept({
     method: "POST",
-    url: "/graphql"
+    url: "/graphql",
   }).as("graphql");
 
   cy.contains("Ok").click();
@@ -62,7 +62,7 @@ const loginByCognitoApi = (username, password) => {
   const log = Cypress.log({
     displayName: "COGNITO LOGIN",
     message: [`🔐 Authenticating | ${username}`],
-    autoEnd: false
+    autoEnd: false,
   });
 
   const signIn = configureCognitoAndSignIn(username, password);
@@ -75,8 +75,8 @@ const loginByCognitoApi = (username, password) => {
       displayName: "Here",
       message: [
         `🔐 Authenticated, saving tokens: `,
-        JSON.stringify(cognitoResponse, null, 2)
-      ]
+        JSON.stringify(cognitoResponse, null, 2),
+      ],
     });
 
     const keyPrefixWithUsername = `${cognitoResponse.keyPrefix}.${cognitoResponse.username}`;
@@ -129,13 +129,13 @@ const months = {
   September: 8,
   November: 9,
   December: 10,
-  October: 11
+  October: 11,
 };
 
 const selectFromDatePicker = (name: string, targetDate: Date) => {
   cy.get(`input[name='${name}']`).click();
   return cy.get("[data-g-portal-id]").within(() => {
-    cy.get("h3").then(header => {
+    cy.get("h3").then((header) => {
       const parts = header.text().split(" ");
       const month = months[parts[0].trim()];
       const year = Number.parseInt(parts[1].trim(), 10);
@@ -153,7 +153,7 @@ const selectFromDatePicker = (name: string, targetDate: Date) => {
       });
 
       Cypress.log({
-        message: [targetDate.getDate()]
+        message: [targetDate.getDate()],
       });
 
       cy.get("button").contains(targetDate.getDate()).click();
@@ -182,8 +182,9 @@ const createRecipe = (
   cy.get("input[name='name']").type(name);
   cy.get("input[name='shortName']").type(shortName);
   cy.get("input[name='description']").type(description);
+  cy.get("input[name='name']").type("milk, fish");
   cy.get("input[name='potentialExclusions']").click();
-  exclusions.forEach(exclusion => {
+  exclusions.forEach((exclusion) => {
     cy.get("[data-g-portal-id='1']")
       .find("div[role='menubar']")
       .contains(exclusion)
@@ -194,7 +195,7 @@ const createRecipe = (
 
   cy.intercept({
     method: "POST",
-    url: "/graphql"
+    url: "/graphql",
   }).as("graphql");
 
   cy.contains("Ok").click();
