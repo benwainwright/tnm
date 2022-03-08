@@ -1,3 +1,10 @@
+### [1.24.4](https://github.com/benwainwright/tnm/compare/v1.24.3...v1.24.4) (2022-03-08)
+
+
+### Bug Fixes
+
+* add the word contains to the start of all allergens ([560bae0](https://github.com/benwainwright/tnm/commit/560bae0c6c4a0b0172d7f787f7df25eb7b41d5d0))
+
 ### [1.24.3](https://github.com/benwainwright/tnm/compare/v1.24.2...v1.24.3) (2022-03-08)
 
 
