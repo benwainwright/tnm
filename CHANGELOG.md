@@ -1,3 +1,10 @@
+### [1.24.2](https://github.com/benwainwright/tnm/compare/v1.24.1...v1.24.2) (2022-03-08)
+
+
+### Bug Fixes
+
+* add allergens to query ([bb3a430](https://github.com/benwainwright/tnm/commit/bb3a430a773e26ebda7b7ee6df3255e67eaf5e49))
+
 ### [1.24.1](https://github.com/benwainwright/tnm/compare/v1.24.0...v1.24.1) (2022-03-05)
 
 
