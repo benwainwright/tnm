@@ -1,3 +1,11 @@
+### [1.24.3](https://github.com/benwainwright/tnm/compare/v1.24.2...v1.24.3) (2022-03-08)
+
+
+### Bug Fixes
+
+* add default allergens label ([2b52245](https://github.com/benwainwright/tnm/commit/2b52245212248bcae34ffbb0ad7f5fa31758d01c))
+* normalise ([ed62383](https://github.com/benwainwright/tnm/commit/ed623835434e401980f62dfd14334c78cd83483c))
+
 ### [1.24.2](https://github.com/benwainwright/tnm/compare/v1.24.1...v1.24.2) (2022-03-08)
 
 
