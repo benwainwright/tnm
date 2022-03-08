@@ -80,9 +80,11 @@ export const generateLabelData = (
             ...defaultProps,
             ...item.recipe,
             hotOrCold: `Enjoy ${item.recipe.hotOrCold}`,
-            allergens: item.recipe.allergens?.trim()
-              ? item.recipe.allergens.trim()
-              : "Contains no allergens",
+            allergens: `Contains ${
+              item.recipe.allergens?.trim()
+                ? item.recipe.allergens.trim()
+                : "no allergens"
+            }`,
             itemPlan: item.chosenVariant,
             variantString: variant.string,
             mealLabelString: variant.mealWithVariantString,
