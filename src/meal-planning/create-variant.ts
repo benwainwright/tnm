@@ -34,7 +34,7 @@ const createVariantString = (
 
   const exclusions = createExclusionsString(customer, item, allMeals);
 
-  const exclusionsString = Boolean(exclusions) ? `$ (${exclusions})` : ``;
+  const exclusionsString = exclusions ? `$ (${exclusions})` : ``;
 
   return `${item.chosenVariant}${exclusionsString}`;
 };
