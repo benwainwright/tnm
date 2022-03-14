@@ -1,3 +1,10 @@
+## [1.25.0](https://github.com/benwainwright/tnm/compare/v1.24.4...v1.25.0) (2022-03-14)
+
+
+### Features
+
+* add customisations to label data ([d9eeae8](https://github.com/benwainwright/tnm/commit/d9eeae8f9907b74cf719a39570d567497cc075e3))
+
 ### [1.24.4](https://github.com/benwainwright/tnm/compare/v1.24.3...v1.24.4) (2022-03-08)
 
 
