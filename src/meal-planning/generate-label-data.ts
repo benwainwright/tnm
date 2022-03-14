@@ -85,6 +85,7 @@ export const generateLabelData = (
                 ? item.recipe.allergens.trim()
                 : "no allergens"
             }`,
+            customisations: variant.exclusions ?? "",
             itemPlan: item.chosenVariant,
             variantString: variant.string,
             mealLabelString: variant.mealWithVariantString,
