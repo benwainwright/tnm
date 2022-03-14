@@ -12,6 +12,7 @@ import { generateLabelData, makeCookPlan } from "../../meal-planning";
 import DownloadLabelsDialog from "../../components/download-labels-dialog/download-labels-dialog";
 import fileDownload from "js-file-download";
 import generateCsvStringFromObjectArray from "../../lib/generateCsvStringFromObjectArray";
+import { generateDatestampedFilename } from "../../lib/generate-datestamped-filename";
 
 const Planner: React.FC = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const Planner: React.FC = () => {
               setShowLabelDialog(false);
               fileDownload(
                 generateCsvStringFromObjectArray(data),
-                "labels.csv"
+                generateDatestampedFilename("labels", "csv")
               );
             }}
           />
@@ -53,7 +54,7 @@ const Planner: React.FC = () => {
               customerMeals ?? [],
               recipes
             );
-            downloadPdf(plan, "pack-plan.pdf");
+            downloadPdf(plan, generateDatestampedFilename("pack-plan", "pdf"));
           }}
         />
         <Button
@@ -65,7 +66,7 @@ const Planner: React.FC = () => {
             const plan = makeCookPlan(customerMeals ?? [], recipes);
             downloadPdf(
               generateCookPlanDocumentDefinition(plan),
-              "cook-plan.pdf"
+              generateDatestampedFilename("cook-plan", "pdf")
             );
           }}
         />
