@@ -1,3 +1,10 @@
+## [1.26.0](https://github.com/benwainwright/tnm/compare/v1.25.0...v1.26.0) (2022-03-14)
+
+
+### Features
+
+* datestamp filename ([0c07891](https://github.com/benwainwright/tnm/commit/0c07891e063b6a8a0118818e04f773af2c44bc81))
+
 ## [1.25.0](https://github.com/benwainwright/tnm/compare/v1.24.4...v1.25.0) (2022-03-14)
 
 
