@@ -1,6 +1,7 @@
-import { CustomerMealsSelection, isSelectedMeal } from "./types";
+import { CustomerMealsSelection, isSelectedMeal, SelectedItem } from "./types";
 import { createVariant } from "./create-variant";
 import Recipe from "../domain/Recipe";
+import Customer from "../domain/Customer";
 
 const stringifyValue = (thing: unknown) =>
   typeof thing === "number" ? String(thing) : thing;
@@ -52,6 +53,56 @@ const formatDate = (date: Date) => {
   )}/${convertToStringWithLeadingZero(month)}/${year}`;
 };
 
+const makeLabelObject = (
+  customer: Customer,
+  item: SelectedItem,
+  useByDate: Date,
+  allMeals: Recipe[]
+) => {
+  const { salutation, surname, firstName, ...remainingCustomerProps } =
+    customer;
+  const defaultCustomerProps = {
+    salutation,
+    surname,
+    firstName,
+  };
+
+  if (isSelectedMeal(item)) {
+    const variant = createVariant(customer, item, allMeals);
+    const { shortName, name, description, hotOrCold, ...remainingRecipeProps } =
+      item.recipe;
+
+    return {
+      ...defaultCustomerProps,
+      shortName,
+      name,
+      description,
+      allergens: `Contains ${
+        item.recipe.allergens?.trim()
+          ? item.recipe.allergens.trim()
+          : "no allergens"
+      }`,
+      itemPlan: item.chosenVariant,
+      customisations: variant.exclusions ?? "",
+      hotOrCold: `Enjoy ${hotOrCold}`,
+      variantString: variant.string,
+      mealLabelString: variant.mealWithVariantString,
+      mealName: titleCase(item.recipe.name),
+      useBy: `Use by ${formatDate(useByDate)}`,
+      ...remainingCustomerProps,
+      ...remainingRecipeProps,
+    };
+  }
+  return {
+    ...defaultCustomerProps,
+    ...remainingCustomerProps,
+    useBy: `Use by ${formatDate(useByDate)}`,
+    customerName: titleCase(`${customer.firstName} ${customer.surname}`),
+    mealName: titleCase(item.chosenVariant),
+    itemPlan: "extra",
+  };
+};
+
 export const generateLabelData = (
   selections: CustomerMealsSelection,
   useByDate: Date,
@@ -66,37 +117,8 @@ export const generateLabelData = (
         return [];
       }
 
-      return delivery.map((item) => {
-        const defaultProps = {
-          ...selection.customer,
-          useBy: `Use by ${formatDate(useByDate)}`,
-          customerName: titleCase(
-            `${selection.customer.firstName} ${selection.customer.surname}`
-          ),
-        };
-        if (isSelectedMeal(item)) {
-          const variant = createVariant(selection.customer, item, allMeals);
-          return {
-            ...defaultProps,
-            ...item.recipe,
-            hotOrCold: `Enjoy ${item.recipe.hotOrCold}`,
-            allergens: `Contains ${
-              item.recipe.allergens?.trim()
-                ? item.recipe.allergens.trim()
-                : "no allergens"
-            }`,
-            customisations: variant.exclusions ?? "",
-            itemPlan: item.chosenVariant,
-            variantString: variant.string,
-            mealLabelString: variant.mealWithVariantString,
-            mealName: titleCase(item.recipe.name),
-          };
-        }
-        return {
-          ...defaultProps,
-          mealName: titleCase(item.chosenVariant),
-          itemPlan: "extra",
-        };
-      });
+      return delivery.map((item) =>
+        makeLabelObject(selection.customer, item, useByDate, allMeals)
+      );
     })
     .map(normalize);
