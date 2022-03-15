@@ -1,3 +1,10 @@
+## [1.27.0](https://github.com/benwainwright/tnm/compare/v1.26.0...v1.27.0) (2022-03-15)
+
+
+### Features
+
+* reorder data export ([df5f166](https://github.com/benwainwright/tnm/commit/df5f16623c9c5c2b36492a19e948e1d153f52945))
+
 ## [1.26.0](https://github.com/benwainwright/tnm/compare/v1.25.0...v1.26.0) (2022-03-14)
 
 
