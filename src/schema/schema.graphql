@@ -100,6 +100,7 @@ input RecipeInput {
   hotOrCold: String!
   shortName: String!
   description: String
+  allergens: String
   exclusionIds: [ID!]!
   invalidExclusions: [ID!]
 }
