@@ -1,3 +1,10 @@
+### [1.27.1](https://github.com/benwainwright/tnm/compare/v1.27.0...v1.27.1) (2022-03-17)
+
+
+### Bug Fixes
+
+* fix missing schema item ([090a1b7](https://github.com/benwainwright/tnm/commit/090a1b7bb009d6848331544373f1253ddb512ded))
+
 ## [1.27.0](https://github.com/benwainwright/tnm/compare/v1.26.0...v1.27.0) (2022-03-15)
 
 
