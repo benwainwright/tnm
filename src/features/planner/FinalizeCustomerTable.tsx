@@ -20,13 +20,14 @@ import FinalizeCell from "./FinalizeCell";
 import DeliveryMealsSelection from "../../types/DeliveryMealsSelection";
 import { Link } from "react-router-dom";
 import { addAdHoc } from "./planner-reducer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getPlanString } from "../../lib/get-plan-string";
 import {
   defaultDeliveryDays,
   extrasLabels,
   planLabels,
 } from "../../lib/config";
+import { customerByIdSelector } from "../customers/customersSlice";
 
 interface FinalizeRowProps {
   customerSelection: CustomerMealsSelection[number];
@@ -46,6 +47,14 @@ const FinalizeCustomerTableUnMemoized: React.FC<FinalizeRowProps> = (props) => {
   const name = `${props.customerSelection.customer.firstName} ${props.customerSelection.customer.surname}`;
 
   const deliveries = props.customerSelection.deliveries ?? [];
+
+  const liveCustomer = useSelector(
+    customerByIdSelector(props.customerSelection.customer.id)
+  );
+
+  const customisationsTags =
+    liveCustomer?.exclusions.map((exclusion) => exclusion.name).join(", ") ??
+    "";
 
   const planString = React.useMemo(
     () =>
@@ -75,6 +84,8 @@ const FinalizeCustomerTableUnMemoized: React.FC<FinalizeRowProps> = (props) => {
                   </Link>{" "}
                 </strong>
                 / {planString}
+                {customisationsTags.length > 0 ? " / " : ""}
+                <strong>{customisationsTags}</strong>
               </Text>
             </Box>
           </TableCell>
