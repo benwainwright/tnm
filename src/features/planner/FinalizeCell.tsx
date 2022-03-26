@@ -1,4 +1,4 @@
-import { Select, TableCell, ThemeContext } from "grommet";
+import { Box, Button, Select, TableCell, ThemeContext } from "grommet";
 import {
   CustomerMealsSelection,
   SelectedItem,
@@ -6,11 +6,12 @@ import {
 } from "../../meal-planning";
 import React from "react";
 import Recipe from "../../domain/Recipe";
-import { adjustCustomerSelection } from "./planner-reducer";
+import { adjustCustomerSelection, addhocRemove } from "./planner-reducer";
 import deepMemo from "../../lib/deepMemo";
 import { useDispatch } from "react-redux";
 import DeliveryMealsSelection from "../../types/DeliveryMealsSelection";
 import { extrasLabels, planLabels } from "../../lib/config";
+import { Trash } from "grommet-icons";
 
 interface FinalizeCellProps {
   index: number;
@@ -80,16 +81,31 @@ const UnMemoizedFinalizeCell: React.FC<FinalizeCellProps> = (props) => {
           },
         }}
       >
-        <Select
-          plain
-          size="xsmall"
-          options={options(props.deliveryIndex)}
-          placeholder="None"
-          labelKey={getSelectedItemString}
-          valueKey={getSelectedItemString}
-          value={props.selectedItem}
-          onChange={onChange}
-        />
+        <Box direction="row">
+          <Button
+            hoverIndicator
+            icon={<Trash size="small" />}
+            onClick={() => {
+              dispatch(
+                addhocRemove({
+                  customer: props.customerSelection.customer,
+                  deliveryIndex: props.deliveryIndex,
+                  mealIndex: props.index,
+                })
+              );
+            }}
+          />
+          <Select
+            plain
+            size="xsmall"
+            options={options(props.deliveryIndex)}
+            placeholder="None"
+            labelKey={getSelectedItemString}
+            valueKey={getSelectedItemString}
+            value={props.selectedItem}
+            onChange={onChange}
+          />
+        </Box>
       </ThemeContext.Extend>
     </TableCell>
   );

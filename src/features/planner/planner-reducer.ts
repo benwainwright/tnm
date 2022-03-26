@@ -64,6 +64,15 @@ interface AddAdHocPayload {
   deliveryIndex: number;
 }
 
+interface AddHocRemovePayload {
+  customer: Customer;
+  deliveryIndex: number;
+  mealIndex: number;
+}
+
+export const addhocRemove =
+  createAction<AddHocRemovePayload>("adhocRemoveMeal");
+
 export const clearPlanner = createAction("clearPlanner");
 export const addAdHoc = createAction<AddAdHocPayload>("addAdHoc");
 export const adjustCustomerSelection = createAction<
@@ -114,8 +123,44 @@ const plannerReducer = (state: AppState, action?: AnyAction): AppState => {
     }
   );
 
-  const stateAfterMealGenerate = executeAction<GenerateSelectionPayload>(
+  const stateAfterAdhocRemove = executeAction<AddHocRemovePayload>(
     stateAfterRecipeRemove,
+    action,
+    addhocRemove.type,
+    (newState, executingAction) => {
+      const cloneSelections = newState.planner.customerSelections?.map(
+        (selection) => ({
+          ...selection,
+          deliveries:
+            selection.customer !== executingAction.payload.customer
+              ? selection.deliveries
+              : selection.deliveries.map((delivery, deliveryIndex) =>
+                  typeof delivery === "string" ||
+                  deliveryIndex !== executingAction.payload.deliveryIndex
+                    ? delivery
+                    : delivery
+                        .filter((item, index) =>
+                          index === executingAction.payload.mealIndex
+                            ? null
+                            : item
+                        )
+                        .filter(Boolean)
+                ),
+        })
+      );
+
+      return {
+        ...newState,
+        planner: {
+          ...newState.planner,
+          customerSelections: cloneSelections,
+        },
+      };
+    }
+  );
+
+  const stateAfterMealGenerate = executeAction<GenerateSelectionPayload>(
+    stateAfterAdhocRemove,
     action,
     generateCustomerMeals.type,
     (newState, executingAction) => ({
