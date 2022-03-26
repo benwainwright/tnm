@@ -142,4 +142,4 @@ const exclusionsSlice = createSlice({
 export default exclusionsSlice;
 
 export const allExclusionsSelector = (state: AppState): Exclusion[] =>
-  state.exclusions.items;
+  state.exclusions.items.slice().sort((a, b) => (a.name > b.name ? 1 : -1));
