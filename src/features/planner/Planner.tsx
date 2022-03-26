@@ -1,26 +1,48 @@
 import { Heading, Header, Button } from "grommet";
 import { useDispatch, useSelector } from "react-redux";
 
-import React from "react";
+import React, { useState } from "react";
 import { allRecipesSelector } from "../recipes/recipesSlice";
 import Finalize from "./Finalize";
 import { clearPlanner, customerSelectionsSelector } from "./planner-reducer";
 import generateDeliveryPlanDocumentDefinition from "../../lib/generateDeliveryPlanDocumentDefinition";
 import generateCookPlanDocumentDefinition from "../../lib/generateCookPlanDocumentDefinition";
+import downloadPdf from "../../lib/downloadPdf";
+import { generateLabelData, makeCookPlan } from "../../meal-planning";
+import DownloadLabelsDialog from "../../components/download-labels-dialog/download-labels-dialog";
 import fileDownload from "js-file-download";
 import generateCsvStringFromObjectArray from "../../lib/generateCsvStringFromObjectArray";
-import downloadPdf from "../../lib/downloadPdf";
-import { makeCookPlan, generateLabelData } from "../../meal-planning";
-import { defaultDeliveryDays } from "../../lib/config";
+import { generateDatestampedFilename } from "../../lib/generate-datestamped-filename";
 
 const Planner: React.FC = () => {
   const dispatch = useDispatch();
   const customerMeals = useSelector(customerSelectionsSelector);
   const recipes = useSelector(allRecipesSelector);
+  const [showLabelsDialog, setShowLabelDialog] = useState(false);
 
   return (
     <>
       <Header align="center" justify="start" gap="small">
+        {showLabelsDialog && (
+          <DownloadLabelsDialog
+            onClose={() => setShowLabelDialog(false)}
+            onDownload={(useBy, cook) => {
+              const data = generateLabelData(
+                customerMeals ?? [],
+                useBy,
+                recipes,
+                cook
+              );
+              // eslint-disable-next-line no-console
+              console.log(data);
+              setShowLabelDialog(false);
+              fileDownload(
+                generateCsvStringFromObjectArray(data),
+                generateDatestampedFilename("labels", "csv")
+              );
+            }}
+          />
+        )}
         <Heading level={2}>Planner</Heading>
         <Button
           primary
@@ -32,7 +54,7 @@ const Planner: React.FC = () => {
               customerMeals ?? [],
               recipes
             );
-            downloadPdf(plan, "pack-plan.pdf");
+            downloadPdf(plan, generateDatestampedFilename("pack-plan", "pdf"));
           }}
         />
         <Button
@@ -44,27 +66,19 @@ const Planner: React.FC = () => {
             const plan = makeCookPlan(customerMeals ?? [], recipes);
             downloadPdf(
               generateCookPlanDocumentDefinition(plan),
-              "cook-plan.pdf"
+              generateDatestampedFilename("cook-plan", "pdf")
             );
           }}
         />
-        {defaultDeliveryDays.map((value, deliveryIndex) => (
-          <Button
-            key={`delivery-${deliveryIndex}-labels-button`}
-            primary
-            size="small"
-            label={`Labels ${deliveryIndex + 1}`}
-            disabled={Boolean(!customerMeals || !recipes)}
-            onClick={() => {
-              fileDownload(
-                generateCsvStringFromObjectArray(
-                  generateLabelData(customerMeals ?? [], recipes, deliveryIndex)
-                ),
-                "labels.csv"
-              );
-            }}
-          />
-        ))}
+        <Button
+          primary
+          size="small"
+          label="Download Label Data"
+          disabled={Boolean(!customerMeals || !recipes)}
+          onClick={() => {
+            setShowLabelDialog(true);
+          }}
+        />
         <Button
           primary
           size="small"

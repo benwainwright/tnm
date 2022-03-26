@@ -6,5 +6,5 @@ const doLog = (logItem: string | Record<string, unknown>): void => {
 };
 
 export const logger = {
-  info: doLog
+  info: doLog,
 };

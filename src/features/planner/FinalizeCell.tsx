@@ -2,7 +2,7 @@ import { Select, TableCell, ThemeContext } from "grommet";
 import {
   CustomerMealsSelection,
   SelectedItem,
-  SelectedMeal
+  SelectedMeal,
 } from "../../meal-planning";
 import React from "react";
 import Recipe from "../../domain/Recipe";
@@ -33,11 +33,11 @@ const getSelectedItemString = (selectedItem: SelectedItem) => {
   return selectedItem.chosenVariant;
 };
 
-const UnMemoizedFinalizeCell: React.FC<FinalizeCellProps> = props => {
+const UnMemoizedFinalizeCell: React.FC<FinalizeCellProps> = (props) => {
   const dispatch = useDispatch();
 
   const onChange = React.useCallback(
-    event => {
+    (event) => {
       // eslint-disable-next-line no-console
       console.log(event);
       dispatch(
@@ -47,7 +47,7 @@ const UnMemoizedFinalizeCell: React.FC<FinalizeCellProps> = props => {
           customer: props.customerSelection.customer,
           recipe:
             typeof event.value === "string" ? undefined : event.value.recipe,
-          variant: event.value.chosenVariant
+          variant: event.value.chosenVariant,
         })
       );
     },
@@ -55,15 +55,15 @@ const UnMemoizedFinalizeCell: React.FC<FinalizeCellProps> = props => {
       dispatch,
       props.customerSelection.customer,
       props.index,
-      props.deliveryIndex
+      props.deliveryIndex,
     ]
   );
 
   const options = (delivery: number) => [
-    ...props.deliveryMeals[delivery].flatMap(meal =>
-      planLabels.map(variant => ({ recipe: meal, chosenVariant: variant }))
+    ...props.deliveryMeals[delivery].flatMap((meal) =>
+      planLabels.map((variant) => ({ recipe: meal, chosenVariant: variant }))
     ),
-    ...extrasLabels.map(label => ({ chosenVariant: label }))
+    ...extrasLabels.map((label) => ({ chosenVariant: label })),
   ];
 
   return (
@@ -74,10 +74,10 @@ const UnMemoizedFinalizeCell: React.FC<FinalizeCellProps> = props => {
             input: {
               padding: "0",
               font: {
-                weight: 400
-              }
-            }
-          }
+                weight: 400,
+              },
+            },
+          },
         }}
       >
         <Select

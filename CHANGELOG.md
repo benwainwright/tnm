@@ -1,3 +1,87 @@
+### [1.27.1](https://github.com/benwainwright/tnm/compare/v1.27.0...v1.27.1) (2022-03-17)
+
+
+### Bug Fixes
+
+* fix missing schema item ([090a1b7](https://github.com/benwainwright/tnm/commit/090a1b7bb009d6848331544373f1253ddb512ded))
+
+## [1.27.0](https://github.com/benwainwright/tnm/compare/v1.26.0...v1.27.0) (2022-03-15)
+
+
+### Features
+
+* reorder data export ([df5f166](https://github.com/benwainwright/tnm/commit/df5f16623c9c5c2b36492a19e948e1d153f52945))
+
+## [1.26.0](https://github.com/benwainwright/tnm/compare/v1.25.0...v1.26.0) (2022-03-14)
+
+
+### Features
+
+* datestamp filename ([0c07891](https://github.com/benwainwright/tnm/commit/0c07891e063b6a8a0118818e04f773af2c44bc81))
+
+## [1.25.0](https://github.com/benwainwright/tnm/compare/v1.24.4...v1.25.0) (2022-03-14)
+
+
+### Features
+
+* add customisations to label data ([d9eeae8](https://github.com/benwainwright/tnm/commit/d9eeae8f9907b74cf719a39570d567497cc075e3))
+
+### [1.24.4](https://github.com/benwainwright/tnm/compare/v1.24.3...v1.24.4) (2022-03-08)
+
+
+### Bug Fixes
+
+* add the word contains to the start of all allergens ([560bae0](https://github.com/benwainwright/tnm/commit/560bae0c6c4a0b0172d7f787f7df25eb7b41d5d0))
+
+### [1.24.3](https://github.com/benwainwright/tnm/compare/v1.24.2...v1.24.3) (2022-03-08)
+
+
+### Bug Fixes
+
+* add default allergens label ([2b52245](https://github.com/benwainwright/tnm/commit/2b52245212248bcae34ffbb0ad7f5fa31758d01c))
+* normalise ([ed62383](https://github.com/benwainwright/tnm/commit/ed623835434e401980f62dfd14334c78cd83483c))
+
+### [1.24.2](https://github.com/benwainwright/tnm/compare/v1.24.1...v1.24.2) (2022-03-08)
+
+
+### Bug Fixes
+
+* add allergens to query ([bb3a430](https://github.com/benwainwright/tnm/commit/bb3a430a773e26ebda7b7ee6df3255e67eaf5e49))
+
+### [1.24.1](https://github.com/benwainwright/tnm/compare/v1.24.0...v1.24.1) (2022-03-05)
+
+
+### Bug Fixes
+
+* fixed typo in schema ([7dcaa51](https://github.com/benwainwright/tnm/commit/7dcaa51a502198c062a7736650457f2845d90d5f))
+
+## [1.24.0](https://github.com/benwainwright/tnm/compare/v1.23.1...v1.24.0) (2022-03-05)
+
+
+### Features
+
+* add allergens field ([a2cb78f](https://github.com/benwainwright/tnm/commit/a2cb78ffe33ca572d6d78700ae990a18a1c12fa9))
+
+
+### Bug Fixes
+
+* field should not be required ([6fe6497](https://github.com/benwainwright/tnm/commit/6fe649753bc516813031e4f932f9019ce0f81441))
+
+### [1.23.1](https://github.com/benwainwright/tnm/compare/v1.23.0...v1.23.1) (2022-03-05)
+
+
+### Bug Fixes
+
+* add the string 'Use by' to the start of the use by date ([8aa107b](https://github.com/benwainwright/tnm/commit/8aa107b166ab2522c8506c93a3706eae0d54be91))
+
+## [1.23.0](https://github.com/benwainwright/tnm/compare/v1.22.0...v1.23.0) (2022-03-05)
+
+
+### Features
+
+* add label tweaks ([388dec7](https://github.com/benwainwright/tnm/commit/388dec7a72033f34fcf368091964ad0132ee9a34))
+* add labels dialog and formatted code ([777462d](https://github.com/benwainwright/tnm/commit/777462dd333e89a951a4c5e70374ad0981170e73))
+
 ## [1.22.0](https://github.com/benwainwright/tnm/compare/v1.21.0...v1.22.0) (2021-11-27)
 
 

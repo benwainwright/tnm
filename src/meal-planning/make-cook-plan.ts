@@ -27,8 +27,8 @@ const updateVariantMap = (
       count: (previousVariant?.count ?? 0) + 1,
       customers: previousVariant?.customers
         ? [...previousVariant.customers, customer]
-        : [customer]
-    }
+        : [customer],
+    },
   });
   return newMap;
 };

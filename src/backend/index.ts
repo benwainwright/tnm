@@ -27,7 +27,7 @@ import {
   isListRecipesQuery,
   isUpdateRecipeMutation,
   listRecipes,
-  updateRecipe
+  updateRecipe,
 } from "./recipes";
 
 import { AllQueryVariables } from "./query-variables-types";
@@ -52,13 +52,13 @@ type Result =
 
 /* eslint-disable import/prefer-default-export */
 export const handler: AppSyncResolverHandler<AllQueryVariables, Result> =
-  async event => {
+  async (event) => {
     if (event.info.parentTypeName === "Mutation") {
       logger.info({
         type: "Mutation",
         user: event.identity?.username,
         operation: event.info.fieldName,
-        data: event.info.variables.input
+        data: event.info.variables.input,
       });
     }
 

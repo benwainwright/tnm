@@ -12,6 +12,7 @@ export default interface Recipe {
   shortName: string;
   hotOrCold: HotOrCold;
   description?: string;
+  allergens?: string;
   potentialExclusions: Exclusion[];
   invalidExclusions?: string[];
   createdAt?: string;

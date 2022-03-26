@@ -5,7 +5,7 @@ import { allRecipesSelector } from "../recipes/recipesSlice";
 import FinalizeCustomerTable from "./FinalizeCustomerTable";
 import {
   customerSelectionsSelector,
-  plannedMealsSelector
+  plannedMealsSelector,
 } from "./planner-reducer";
 
 const Finalize: React.FC = () => {
@@ -41,7 +41,7 @@ const Finalize: React.FC = () => {
             : // eslint-disable-next-line @typescript-eslint/no-magic-numbers
               -1
         )
-        .map(customerPlan => (
+        .map((customerPlan) => (
           <FinalizeCustomerTable
             key={`${customerPlan.customer.id}-finalize-table`}
             customerSelection={customerPlan}

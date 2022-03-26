@@ -4,7 +4,7 @@ import Recipe from "../domain/Recipe";
 import {
   createVariant,
   CustomerMealsSelection,
-  Delivery
+  Delivery,
 } from "../meal-planning";
 import { defaultDeliveryDays } from "./config";
 import formatPlanItem from "./formatPlanItem";
@@ -24,38 +24,38 @@ const makeRowsFromSelections = (
   customerSelections
     .slice()
     .sort((a, b) => (a.customer.surname > b.customer.surname ? 1 : -1))
-    .map(customerSelection => [
+    .map((customerSelection) => [
       [
         {
           fontSize: 10,
           text: generateNameString(customerSelection.customer),
-          bold: true
+          bold: true,
         },
         typeof customerSelection.delivery !== "string"
           ? {
               ul: Object.entries(
                 customerSelection.delivery
-                  .map(item => item.chosenVariant)
+                  .map((item) => item.chosenVariant)
                   .reduce<Record<string, number>>(
                     (variantMap, variant) => ({
                       ...variantMap,
                       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-                      [variant]: (variantMap[variant] ?? 0) + 1
+                      [variant]: (variantMap[variant] ?? 0) + 1,
                     }),
                     {}
                   )
-              ).map(([key, value]) => `${key} x ${value}`)
+              ).map(([key, value]) => `${key} x ${value}`),
             }
-          : ""
+          : "",
       ],
       [],
       ...(typeof customerSelection.delivery === "string"
         ? [customerSelection.delivery]
         : customerSelection.delivery
-            .map(item =>
+            .map((item) =>
               createVariant(customerSelection.customer, item, allMeals)
             )
-            .map(item => formatPlanItem(item.mealWithVariantString, item)))
+            .map((item) => formatPlanItem(item.mealWithVariantString, item))),
     ]);
 
 const generateNameString = (customer: Customer) =>
@@ -65,7 +65,7 @@ const options = {
   weekday: "long",
   year: "numeric",
   month: "long",
-  day: "numeric"
+  day: "numeric",
 };
 
 const generateDeliveryPlanDocumentDefinition = (
@@ -84,7 +84,7 @@ const generateDeliveryPlanDocumentDefinition = (
     (topBuilder, current, cookIndex) => {
       const daySelections = selections.map(({ customer, deliveries }) => ({
         customer,
-        delivery: deliveries[cookIndex]
+        delivery: deliveries[cookIndex],
       }));
       return topBuilder
         .header(`Cook ${cookIndex + 1}`)

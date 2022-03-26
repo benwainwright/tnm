@@ -2,7 +2,7 @@ import plannerReducer, {
   generateCustomerMeals,
   adjustCustomerSelection,
   clearPlanner,
-  addAdHoc
+  addAdHoc,
 } from "./planner-reducer";
 import { resetAllWhenMocks, when } from "jest-when";
 import AppState from "../../types/AppState";
@@ -11,7 +11,7 @@ import Recipe from "../../domain/Recipe";
 import {
   chooseMeals,
   CustomerMealsSelection,
-  SelectedMeal
+  SelectedMeal,
 } from "../../meal-planning";
 import { mock } from "jest-mock-extended";
 import { mocked } from "ts-jest/utils";
@@ -59,7 +59,7 @@ describe("The planner slice", () => {
       const initialState = mock<AppState>();
       initialState.planner.selectedMeals = [
         [mockRecipe, mockRecipe1, mockRecipe2],
-        [mockRecipe3, mockRecipe4, mockRecipe5]
+        [mockRecipe3, mockRecipe4, mockRecipe5],
       ];
       const mockCustomer1 = mock<Customer>();
       mockCustomer1.exclusions = [];
@@ -75,9 +75,9 @@ describe("The planner slice", () => {
             [
               { recipe: mockRecipe1, chosenVariant: "EQ" },
               { recipe: mockRecipe2, chosenVariant: "EQ" },
-              { recipe: mockRecipe3, chosenVariant: "EQ" }
-            ]
-          ]
+              { recipe: mockRecipe3, chosenVariant: "EQ" },
+            ],
+          ],
         },
 
         {
@@ -85,10 +85,10 @@ describe("The planner slice", () => {
           deliveries: [
             [
               { recipe: mockRecipe5, chosenVariant: "EQ" },
-              { recipe: mockRecipe2, chosenVariant: "EQ" }
-            ]
-          ]
-        }
+              { recipe: mockRecipe2, chosenVariant: "EQ" },
+            ],
+          ],
+        },
       ];
 
       const state = plannerReducer(
@@ -98,14 +98,14 @@ describe("The planner slice", () => {
           index: 1,
           customer: mockCustomer2,
           recipe: mockRecipe3,
-          variant: "EQ"
+          variant: "EQ",
         })
       );
       expect(
         (
           (
             state.planner.customerSelections?.find(
-              selection => selection.customer.id === mockCustomer2.id
+              (selection) => selection.customer.id === mockCustomer2.id
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
             )?.deliveries[0] as any
           )[1] as SelectedMeal
@@ -137,7 +137,7 @@ describe("The planner slice", () => {
       const initialState = mock<AppState>();
       initialState.planner.selectedMeals = [
         [mockRecipe, mockRecipe1, mockRecipe2],
-        [mockRecipe3, mockRecipe4, mockRecipe5]
+        [mockRecipe3, mockRecipe4, mockRecipe5],
       ];
       const mockCustomer1 = mock<Customer>();
       mockCustomer1.exclusions = [];
@@ -153,9 +153,9 @@ describe("The planner slice", () => {
             [
               { recipe: mockRecipe1, chosenVariant: "EQ" },
               { recipe: mockRecipe2, chosenVariant: "EQ" },
-              { recipe: mockRecipe3, chosenVariant: "EQ" }
-            ]
-          ]
+              { recipe: mockRecipe3, chosenVariant: "EQ" },
+            ],
+          ],
         },
 
         {
@@ -163,10 +163,10 @@ describe("The planner slice", () => {
           deliveries: [
             [
               { recipe: mockRecipe5, chosenVariant: "EQ" },
-              { recipe: mockRecipe2, chosenVariant: "EQ" }
-            ]
-          ]
-        }
+              { recipe: mockRecipe2, chosenVariant: "EQ" },
+            ],
+          ],
+        },
       ];
       const state = plannerReducer(initialState, clearPlanner());
       expect(state.planner.customerSelections).toBeUndefined();
@@ -199,14 +199,14 @@ describe("The planner slice", () => {
             [
               { recipe: mockRecipe, chosenVariant: "EQ" },
               { recipe: mockRecipe1, chosenVariant: "EQ" },
-              { recipe: mockRecipe2, chosenVariant: "EQ" }
+              { recipe: mockRecipe2, chosenVariant: "EQ" },
             ],
             [
               { recipe: mockRecipe3, chosenVariant: "EQ" },
               { recipe: mockRecipe4, chosenVariant: "EQ" },
-              { recipe: mockRecipe5, chosenVariant: "EQ" }
-            ]
-          ]
+              { recipe: mockRecipe5, chosenVariant: "EQ" },
+            ],
+          ],
         },
 
         {
@@ -215,15 +215,15 @@ describe("The planner slice", () => {
             [
               { recipe: mockRecipe, chosenVariant: "EQ" },
               { recipe: mockRecipe1, chosenVariant: "EQ" },
-              { recipe: mockRecipe2, chosenVariant: "EQ" }
+              { recipe: mockRecipe2, chosenVariant: "EQ" },
             ],
             [
               { recipe: mockRecipe3, chosenVariant: "EQ" },
               { recipe: mockRecipe4, chosenVariant: "EQ" },
-              { recipe: mockRecipe5, chosenVariant: "Mass" }
-            ]
-          ]
-        }
+              { recipe: mockRecipe5, chosenVariant: "Mass" },
+            ],
+          ],
+        },
       ];
 
       const initialState = mock<AppState>();
@@ -235,7 +235,7 @@ describe("The planner slice", () => {
           mockRecipe2,
           mockRecipe3,
           mockRecipe4,
-          mockRecipe5
+          mockRecipe5,
         ],
         [
           mockRecipe,
@@ -243,8 +243,8 @@ describe("The planner slice", () => {
           mockRecipe2,
           mockRecipe3,
           mockRecipe4,
-          mockRecipe5
-        ]
+          mockRecipe5,
+        ],
       ];
       initialState.planner.customerSelections = originalOutcome;
 
@@ -293,7 +293,7 @@ describe("The planner slice", () => {
 
       const selectedMeals = [
         [mockRecipe, mockRecipe1, mockRecipe2],
-        [mockRecipe3, mockRecipe4, mockRecipe5]
+        [mockRecipe3, mockRecipe4, mockRecipe5],
       ];
 
       initialState.customers.items = [mockCustomer1, mockCustomer2];
@@ -305,9 +305,9 @@ describe("The planner slice", () => {
             [
               { recipe: mockRecipe, chosenVariant: "EQ" },
               { recipe: mockRecipe1, chosenVariant: "EQ" },
-              { recipe: mockRecipe2, chosenVariant: "EQ" }
-            ]
-          ]
+              { recipe: mockRecipe2, chosenVariant: "EQ" },
+            ],
+          ],
         },
 
         {
@@ -316,10 +316,10 @@ describe("The planner slice", () => {
             [
               { recipe: mockRecipe3, chosenVariant: "EQ" },
               { recipe: mockRecipe4, chosenVariant: "EQ" },
-              { recipe: mockRecipe5, chosenVariant: "EQ" }
-            ]
-          ]
-        }
+              { recipe: mockRecipe5, chosenVariant: "EQ" },
+            ],
+          ],
+        },
       ];
 
       const dates = [new Date(Date.now()), new Date(Date.now())];
@@ -332,7 +332,7 @@ describe("The planner slice", () => {
         initialState,
         generateCustomerMeals({
           deliveries: selectedMeals,
-          deliveryDates: dates
+          deliveryDates: dates,
         })
       );
 
