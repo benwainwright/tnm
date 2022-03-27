@@ -1,3 +1,12 @@
+## [1.28.0](https://github.com/benwainwright/tnm/compare/v1.27.1...v1.28.0) (2022-03-27)
+
+
+### Features
+
+* allow removal of item from meal plan ([b1335a1](https://github.com/benwainwright/tnm/commit/b1335a112ab6176dc1423effc0e26f74e00e00c4))
+* make exclusions alphabetical order ([08036ba](https://github.com/benwainwright/tnm/commit/08036bae2e2b8630850f2da2fd5cef3377b46cda))
+* show customisations on planner page ([8b5b392](https://github.com/benwainwright/tnm/commit/8b5b392d97dd598effc5427052b89946459e78f6))
+
 ### [1.27.1](https://github.com/benwainwright/tnm/compare/v1.27.0...v1.27.1) (2022-03-17)
 
 
