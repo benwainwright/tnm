@@ -6,6 +6,18 @@
 * add sorting for the fourth time ([86494c6](https://github.com/benwainwright/tnm/commit/86494c66a4e6f3cb38008e9618e09c86e11761b4))
 * allow removal of item from meal plan ([b1335a1](https://github.com/benwainwright/tnm/commit/b1335a112ab6176dc1423effc0e26f74e00e00c4))
 * force release ([2533ed0](https://github.com/benwainwright/tnm/commit/2533ed063dc67136bd59027db78e5f9ea177308b))
+* force release again 2 ([dd61b02](https://github.com/benwainwright/tnm/commit/dd61b0261cac0a3aa089ab7e4f2b72f9bcbd398a))
+* make exclusions alphabetical order ([08036ba](https://github.com/benwainwright/tnm/commit/08036bae2e2b8630850f2da2fd5cef3377b46cda))
+* show customisations on planner page ([8b5b392](https://github.com/benwainwright/tnm/commit/8b5b392d97dd598effc5427052b89946459e78f6))
+
+## [1.28.0](https://github.com/benwainwright/tnm/compare/v1.27.1...v1.28.0) (2022-05-03)
+
+
+### Features
+
+* add sorting for the fourth time ([86494c6](https://github.com/benwainwright/tnm/commit/86494c66a4e6f3cb38008e9618e09c86e11761b4))
+* allow removal of item from meal plan ([b1335a1](https://github.com/benwainwright/tnm/commit/b1335a112ab6176dc1423effc0e26f74e00e00c4))
+* force release ([2533ed0](https://github.com/benwainwright/tnm/commit/2533ed063dc67136bd59027db78e5f9ea177308b))
 * make exclusions alphabetical order ([08036ba](https://github.com/benwainwright/tnm/commit/08036bae2e2b8630850f2da2fd5cef3377b46cda))
 * show customisations on planner page ([8b5b392](https://github.com/benwainwright/tnm/commit/8b5b392d97dd598effc5427052b89946459e78f6))
 
