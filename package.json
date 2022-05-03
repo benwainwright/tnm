@@ -2,7 +2,7 @@
   "name": "@benwainwright/tnm",
   "version": "1.28.0",
   "repository": "git@github.com:benwainwright/tnm.git",
-  "description": "A meal planner for TNM",
+  "description": "A meal planning app for Tnm",
   "resolutions": {
     "immer": "9.0.6"
   },
