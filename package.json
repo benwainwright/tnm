@@ -1,6 +1,6 @@
 {
   "name": "@benwainwright/tnm",
-  "version": "1.28.0",
+  "version": "1.27.1",
   "repository": "git@github.com:benwainwright/tnm.git",
   "description": "A meal planning app for TNM",
   "resolutions": {
@@ -314,7 +314,7 @@
     "mochawesome-merge": "^4.2.0",
     "mochawesome-report-generator": "^5.1.0",
     "mockdate": "^3.0.2",
-    "moment": "^2.29.2",
+    "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
     "nodegit": "^0.27.0",
     "optimize-css-assets-webpack-plugin": "5.0.4",

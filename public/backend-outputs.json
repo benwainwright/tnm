@@ -1,15 +1,15 @@
 {
-  "DevBackendStackdev": {
-    "GraphQlQpiUrl": "https://2n5z55cm6raz5btzb43q3viptq.appsync-api.us-east-1.amazonaws.com/graphql",
-    "RecipesTableName": "dev-tnm-admin-recipes-table",
-    "RecipeExclusionsTableName": "dev-tnm-admin-recipe-exclusions-table",
-    "UserPoolId": "us-east-1_VpZEipENI",
-    "ExclusionsTableName": "dev-tnm-admin-exclusions-table",
-    "AuthUrl": "https://dev-tnm-admin-auth.auth.us-east-1.amazoncognito.com",
-    "CustomersTableName": "dev-tnm-admin-customers-table",
-    "ClientId": "1q9otakv6kk4mgb2vtesjvqrnn",
-    "RedirectUrl": "https://dev-tnm-admin-auth.auth.us-east-1.amazoncognito.com/login?client_id=1q9otakv6kk4mgb2vtesjvqrnn&response_type=code&redirect_uri=https://dev.tnm-admin.com",
-    "CustomerExclusionsTableName": "dev-tnm-admin-customer-exclusions-table",
-    "DataApiEndpoint21715A57": "https://1ipuuklt0f.execute-api.us-east-1.amazonaws.com/prod/"
+  "tnm-local-backend-stack": {
+    "GraphQlQpiUrl": "https://6b533okwl5ehridj5564t5ejxi.appsync-api.us-east-1.amazonaws.com/graphql",
+    "RecipesTableName": "local-tnm-admin-recipes-table",
+    "RecipeExclusionsTableName": "local-tnm-admin-recipe-exclusions-table",
+    "UserPoolId": "us-east-1_kyjp1hWRO",
+    "ExclusionsTableName": "local-tnm-admin-exclusions-table",
+    "AuthUrl": "https://local-tnm-admin-auth.auth.us-east-1.amazoncognito.com",
+    "CustomersTableName": "local-tnm-admin-customers-table",
+    "ClientId": "6p3fd9hirik53ncoeu4pnfcva6",
+    "RedirectUrl": "https://local-tnm-admin-auth.auth.us-east-1.amazoncognito.com/login?client_id=6p3fd9hirik53ncoeu4pnfcva6&response_type=code&redirect_uri=https://local.tnm-admin.com",
+    "CustomerExclusionsTableName": "local-tnm-admin-customer-exclusions-table",
+    "DataApiEndpoint21715A57": "https://ebpkzwxy4c.execute-api.us-east-1.amazonaws.com/prod/"
   }
 }
