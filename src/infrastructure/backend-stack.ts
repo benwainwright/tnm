@@ -236,6 +236,7 @@ export default class BackendStack extends cdk.Stack {
 
     scanCustomersRole.attachInlinePolicy(getCustomersPolicy);
 
+    /* eslint-disable @typescript-eslint/naming-convention */
     const errorResponses: apiGateway.IntegrationResponse[] = [
       {
         selectionPattern: "400",
@@ -286,6 +287,7 @@ export default class BackendStack extends cdk.Stack {
       ],
       apiKeyRequired: true,
     };
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     customersResource.addMethod("GET", scanCustomersIntegration, methodOptions);
 

@@ -53,6 +53,34 @@ const formatDate = (date: Date) => {
   )}/${convertToStringWithLeadingZero(month)}/${year}`;
 };
 
+const sortFunction = (a: Record<string, string>, b: Record<string, string>) => {
+  if (a.surname[0] > b.surname[0]) {
+    return 1;
+  }
+
+  if (a.surname[0] < b.surname[0]) {
+    return -1;
+  }
+
+  if (a.mealName > b.mealName) {
+    return 1;
+  }
+
+  if (a.mealName < b.mealName) {
+    return -1;
+  }
+
+  if (a.itemPlan > b.itemPlan) {
+    return 1;
+  }
+
+  if (a.itemPlan < b.itemPlan) {
+    return -1;
+  }
+
+  return 0;
+};
+
 const makeLabelObject = (
   customer: Customer,
   item: SelectedItem,
@@ -61,6 +89,7 @@ const makeLabelObject = (
 ) => {
   const { salutation, surname, firstName, ...remainingCustomerProps } =
     customer;
+
   const defaultCustomerProps = {
     salutation,
     surname,
@@ -121,4 +150,6 @@ export const generateLabelData = (
         makeLabelObject(selection.customer, item, useByDate, allMeals)
       );
     })
-    .map(normalize);
+    .map(normalize)
+    .slice()
+    .sort(sortFunction);
