@@ -1,3 +1,10 @@
+### [1.28.3](https://github.com/benwainwright/tnm/compare/v1.28.2...v1.28.3) (2022-05-27)
+
+
+### Bug Fixes
+
+* second attempt at getting all the column headers ([a21a532](https://github.com/benwainwright/tnm/commit/a21a532ae4fd3782cfa3eb93b283b01a6786d234))
+
 ### [1.28.2](https://github.com/benwainwright/tnm/compare/v1.28.1...v1.28.2) (2022-05-27)
 
 
