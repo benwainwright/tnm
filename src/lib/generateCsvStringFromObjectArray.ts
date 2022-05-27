@@ -35,6 +35,13 @@ interface ArbitraryObjectType {
   [key: string]: ValueType;
 }
 
+const getColumnHeaders = (input: readonly ArbitraryObjectType[]) =>
+  input.reduce<string[]>(
+    (accum, item) =>
+      accum.length > Object.keys(item).length ? accum : Object.keys(item),
+    []
+  );
+
 const generateCsvStringFromObjectArray = (
   inputObjectArray: ReadonlyArray<ArbitraryObjectType>
 ): string => {
@@ -44,7 +51,10 @@ const generateCsvStringFromObjectArray = (
     );
   }
 
-  const columnHeaders = Object.keys(inputObjectArray[0]);
+  const columnHeaders = getColumnHeaders(inputObjectArray);
+
+  // eslint-disable-next-line no-console
+  console.log(inputObjectArray);
 
   const rows = inputObjectArray
     .map((row) =>

@@ -16,8 +16,11 @@ interface AmplifyUser {
   signInUserSession?: {
     accessToken?: {
       payload?: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         "cognito:groups": string[];
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         "cognito:username": string;
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         "cognito:email": string;
       };
     };
