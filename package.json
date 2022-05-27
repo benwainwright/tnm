@@ -1,6 +1,6 @@
 {
   "name": "@benwainwright/tnm",
-  "version": "1.28.0",
+  "version": "1.28.1",
   "repository": "git@github.com:benwainwright/tnm.git",
   "description": "A meal planning app for Tnm",
   "resolutions": {

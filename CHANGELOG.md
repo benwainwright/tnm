@@ -1,3 +1,10 @@
+### [1.28.1](https://github.com/benwainwright/tnm/compare/v1.28.0...v1.28.1) (2022-05-27)
+
+
+### Bug Fixes
+
+* change sorting ([b8e42e3](https://github.com/benwainwright/tnm/commit/b8e42e34cf054d10588e8533da35b7f4b2c8808f))
+
 ## [1.28.0](https://github.com/benwainwright/tnm/compare/v1.27.1...v1.28.0) (2022-05-03)
 
 
