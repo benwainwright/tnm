@@ -87,6 +87,7 @@ const makeLabelObject = (
       hotOrCold: `Enjoy ${hotOrCold}`,
       variantString: variant.string,
       mealLabelString: variant.mealWithVariantString,
+      customerName: titleCase(`${customer.firstName} ${customer.surname}`),
       mealName: titleCase(item.recipe.name),
       useBy: `Use by ${formatDate(useByDate)}`,
       ...remainingCustomerProps,
@@ -104,7 +105,6 @@ const makeLabelObject = (
 };
 
 const sortFunction = (a: Record<string, string>, b: Record<string, string>) => {
-  
   if (a.mealName > b.mealName) {
     return 1;
   }
