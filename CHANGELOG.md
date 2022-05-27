@@ -1,3 +1,10 @@
+### [1.28.2](https://github.com/benwainwright/tnm/compare/v1.28.1...v1.28.2) (2022-05-27)
+
+
+### Bug Fixes
+
+* generate label data was erasing column headers ([5f42654](https://github.com/benwainwright/tnm/commit/5f4265440e6c9c5c2e19b75297ec6c51772a3f21))
+
 ### [1.28.1](https://github.com/benwainwright/tnm/compare/v1.28.0...v1.28.1) (2022-05-27)
 
 
