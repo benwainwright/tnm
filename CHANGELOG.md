@@ -1,3 +1,10 @@
+### [1.28.4](https://github.com/benwainwright/tnm/compare/v1.28.3...v1.28.4) (2022-05-27)
+
+
+### Bug Fixes
+
+* add missing customerName in non extras ([580469e](https://github.com/benwainwright/tnm/commit/580469eda75c4e3d69dbc512c78173e7d99868d4))
+
 ### [1.28.3](https://github.com/benwainwright/tnm/compare/v1.28.2...v1.28.3) (2022-05-27)
 
 
