@@ -15,6 +15,7 @@ const SlimButton = styled(Button)`
 interface RecipesRowProps {
   recipe: Recipe;
   onChange: (newRecipe: Recipe) => void;
+  recipes: Recipe[];
   showCheckBoxes: boolean;
   plannerMode: boolean;
   selectedDeliveryDay: number;
@@ -103,6 +104,7 @@ const RecipesRow: React.FC<RecipesRowProps> = (props) => {
           />
           {showEdit && (
             <EditRecipesDialog
+              recipes={props.recipes}
               recipe={props.recipe}
               title="Edit Recipe"
               thunk={updateRecipe}

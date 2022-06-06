@@ -17,4 +17,5 @@ export default interface Recipe {
   invalidExclusions?: string[];
   createdAt?: string;
   updatedAt?: string;
+  vegetarianOption?: Recipe;
 }

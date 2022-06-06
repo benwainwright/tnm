@@ -21,6 +21,7 @@ import { debounce } from "lodash";
 
 interface EditRecipesDialogProps {
   recipe: Recipe;
+  recipes: Recipe[];
   thunk: ApiRequestFunction<Recipe>;
   onOk: () => void;
   title: string;
@@ -36,7 +37,6 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
 
   const onSubmit = debounce(async (): Promise<void> => {
     // eslint-disable-next-line no-console
-    console.log("SUBMITTING");
     await dispatch(props.thunk(recipe));
     props.onOk();
   }, ONSUBMIT_DEBOUNCE);
@@ -58,6 +58,8 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
           }}
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onChange={(nextRecipeData: any): void => {
+            // eslint-disable-next-line no-console
+            console.log(nextRecipeData);
             const stateRecipe = {
               ...nextRecipeData,
               invalidExclusions:
@@ -110,6 +112,15 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
                 closeOnChange={false}
                 name="invalidExclusions"
                 options={exclusions}
+                labelKey="name"
+                valueKey="name"
+              />
+            </FormField>
+            <FormField name="vegetarianOption" label="vegetarian Option">
+              <Select
+                closeOnChange={false}
+                name="vegetarianOption"
+                options={props.recipes}
                 labelKey="name"
                 valueKey="name"
               />

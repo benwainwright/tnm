@@ -63,6 +63,7 @@ const Recipes: React.FC = () => {
 
         {showCreate && (
           <EditRecipesDialog
+            recipes={recipes}
             recipe={{
               id: "0",
               shortName: "",
@@ -124,6 +125,7 @@ const Recipes: React.FC = () => {
                 .reverse()
                 .map((recipe) => (
                   <RecipesRow
+                    recipes={recipes}
                     plannerSelection={plannerSelection}
                     selectedDeliveryDay={selectedDelivery}
                     onSelect={(newPlannerSelection) =>

@@ -33,9 +33,10 @@ export const listRecipes = async (): Promise<Recipe[]> => {
   const exclusionsTable = getRequiredEnvVar("EXCLUSIONS_TABLE");
   const recipeExclusionsTable = getRequiredEnvVar("RECIPE_EXCLUSIONS_TABLE");
 
-  const recipeData = (await database.getAll(
-    recipesTable
-  )) as UpdateRecipeMutationVariables["input"][];
+  const recipeData = (await database.getAll(recipesTable)) as (Omit<
+    UpdateRecipeMutationVariables["input"],
+    "vegetarianOption"
+  > & { vegetarianOption?: string })[];
 
   const recipeExclusionIds = new Set(
     recipeData.flatMap((recipe) => recipe.exclusionIds).filter(Boolean)
@@ -69,8 +70,16 @@ export const listRecipes = async (): Promise<Recipe[]> => {
     .map(({ exclusionIds, ...recipe }) => recipe);
 
   // eslint-disable-next-line no-console
-  console.log(recipes);
-  return recipes as Recipe[];
+  console.log(JSON.stringify(recipes, null, 2));
+
+  const recipesWithVegetarian = recipes.map((recipe) => ({
+    ...recipe,
+    vegetarianOption: recipes.find(
+      (needle) => needle.id === recipe.vegetarianOption
+    ),
+  }));
+
+  return recipesWithVegetarian as Recipe[];
   /* eslint-enable @typescript-eslint/naming-convention */
 };
 
@@ -109,6 +118,7 @@ export const createRecipe = async (
     ...input,
     id: recipeId,
     exclusionIds: recipeExclusions.map((item) => item.record.id),
+    vegetarianOption: input.vegetarianOption?.id,
   };
 
   const putRecords = [
@@ -120,19 +130,17 @@ export const createRecipe = async (
   ];
 
   await database.putAll<
-    UpdateRecipeMutationVariables["input"] | RecipeExclusion
+    | (Omit<UpdateRecipeMutationVariables["input"], "vegetarianOption"> & {
+        vegetarianOption?: string;
+      })
+    | RecipeExclusion
   >(putRecords);
 
-  const returnVal = {
+  return {
     ...returnedRecipe,
     id: recipeId,
     potentialExclusions: exclusions,
   };
-
-  // eslint-disable-next-line no-console
-  console.log(JSON.stringify(returnVal));
-
-  return returnVal;
 };
 
 export const deleteRecipe = async (
@@ -217,6 +225,7 @@ export const updateRecipe = async (
   const update = database.updateById(recipesTable, input.id, {
     ...input,
     exclusionIds: finalExclusions,
+    vegetarianOption: input.vegetarianOption?.id,
   });
 
   const exclusions = await database.getAllByIds<Exclusion>(

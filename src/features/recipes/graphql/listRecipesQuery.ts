@@ -8,6 +8,12 @@ query ListRecipesQuery {
     hotOrCold
     allergens
     invalidExclusions
+    vegetarianOption {
+      description
+      id
+      name
+      shortName
+    }
     potentialExclusions {
       allergen
       id
