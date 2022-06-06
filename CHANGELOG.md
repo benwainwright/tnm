@@ -1,3 +1,10 @@
+## [1.29.0](https://github.com/benwainwright/tnm/compare/v1.28.4...v1.29.0) (2022-06-06)
+
+
+### Features
+
+* allow you to select dropdown box in recipes ([3676638](https://github.com/benwainwright/tnm/commit/36766382e1563093e8a94930062faf042f0fafaf))
+
 ### [1.28.4](https://github.com/benwainwright/tnm/compare/v1.28.3...v1.28.4) (2022-05-27)
 
 
