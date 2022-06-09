@@ -1,14 +1,13 @@
 name: Deploy Application to Prod
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Application version'
+        required: true
+        default: 'latest'
   registry_package:
     types: [published, updated]
-
-inputs:
-  version:
-    description: 'Application version'
-    required: true
-    default: 'latest'
 
 jobs:
   deploy-to-prod:
