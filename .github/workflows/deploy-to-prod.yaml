@@ -4,6 +4,12 @@ on:
   registry_package:
     types: [published, updated]
 
+inputs:
+  version:
+    description: 'Application version'
+    required: true
+    default: 'latest'
+
 jobs:
   deploy-to-prod:
     name: Deploy To Prod
