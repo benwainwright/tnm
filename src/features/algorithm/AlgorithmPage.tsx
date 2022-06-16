@@ -1,6 +1,6 @@
 import { Heading, Paragraph } from "grommet";
 import React from "react";
-import { examples } from "./examples";
+import { examples, exclusions } from "./examples";
 import SelectionExample from "./SelectionExample";
 
 const AlgorithmPage = (): JSX.Element => {
@@ -14,7 +14,11 @@ const AlgorithmPage = (): JSX.Element => {
         ask
       </Paragraph>
       {examples.map((example) => (
-        <SelectionExample key={example.name} {...example} />
+        <SelectionExample
+          key={example.name}
+          {...example}
+          exclusions={exclusions}
+        />
       ))}
     </>
   );

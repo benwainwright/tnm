@@ -2,6 +2,7 @@ import { Heading } from "grommet";
 import React from "react";
 import styled from "styled-components";
 import Customer from "../../domain/Customer";
+import Exclusion from "../../domain/Exclusion";
 import { chooseMeals, isSelectedMeal } from "../../meal-planning";
 import DeliveryMealsSelection from "../../types/DeliveryMealsSelection";
 import SelectionCell from "./SelectionCell";
@@ -10,6 +11,7 @@ interface SelectionExampleProps {
   customers: Customer[];
   deliverySelection: DeliveryMealsSelection;
   name: string;
+  exclusions: Exclusion[];
 }
 
 const Row = styled.tr`
@@ -24,12 +26,14 @@ const HeaderRow = styled.tr`
 const Table = styled.table`
   border-collapse: collapse;
   margin-bottom: 3rem;
+  table-layout: fixed;
 `;
 
 const Cell = styled.td`
   padding: 0.3rem;
   border: 1px solid black;
   text-align: center;
+  width: 2%;
 `;
 
 const SelectionExample = (props: SelectionExampleProps): JSX.Element => {
@@ -68,18 +72,31 @@ const SelectionExample = (props: SelectionExampleProps): JSX.Element => {
         </thead>
 
         <tbody>
-          {props.customers.map((customer) => (
-            <Row key={`${props.name}-${customer.id}-customers`}>
-              <Cell>
-                <strong>{customer.firstName}</strong>{" "}
-              </Cell>
-              {customer.newPlan?.deliveries[0].items.map((item) => (
-                <Cell key={`${customer.id}-${item.name}-recipe`}>
-                  {item.name} x {item.quantity}
+          {props.customers.map((customer) => {
+            const exclusionsString =
+              customer.exclusions.length > 0 ? (
+                <div>{` (${customer.exclusions
+                  .map((exclusion) => exclusion.name)
+                  .join(", ")})`}</div>
+              ) : (
+                ``
+              );
+            return (
+              <Row key={`${props.name}-${customer.id}-customers`}>
+                <Cell>
+                  <div>
+                    <strong>{customer.firstName}</strong>
+                  </div>
+                  <div>{exclusionsString}</div>
                 </Cell>
-              ))}
-            </Row>
-          ))}
+                {customer.newPlan?.deliveries[0].items.map((item) => (
+                  <Cell key={`${customer.id}-${item.name}-recipe`}>
+                    {item.name} x {item.quantity}
+                  </Cell>
+                ))}
+              </Row>
+            );
+          })}
         </tbody>
       </Table>
       <Table>
@@ -93,7 +110,12 @@ const SelectionExample = (props: SelectionExampleProps): JSX.Element => {
         <tbody>
           <Row>
             {props.deliverySelection.map((item) => (
-              <SelectionCell key={`${props.name}-${item.id}`} recipe={item} />
+              <SelectionCell
+                picked
+                key={`${props.name}-${item.id}`}
+                recipe={item}
+                exclusions={props.exclusions}
+              />
             ))}
           </Row>
         </tbody>
@@ -118,6 +140,7 @@ const SelectionExample = (props: SelectionExampleProps): JSX.Element => {
                   item.map((innerItem) =>
                     isSelectedMeal(innerItem) ? (
                       <SelectionCell
+                        exclusions={props.exclusions}
                         recipe={innerItem.recipe}
                         variant={innerItem.chosenVariant}
                       />
