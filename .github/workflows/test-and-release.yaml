@@ -63,11 +63,11 @@ jobs:
         run: yarn build:backend
 
       - name: Generate empty build folder
-        run: mkdir build && touch build/     
+        run: mkdir build && touch build/
 
       - name: Move build output
         run: mv dist/bundles/backend backend
-      
+
       - name: Deploy CI Backend
         run: yarn deploy:backend:int
         env:
@@ -127,8 +127,6 @@ jobs:
           name: videos
           path: cypress/videos
 
-
-
   integration-tests:
     name: Run Integration Tests
     needs: [build-and-deploy-int-backend]
@@ -160,7 +158,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_KEY_BACKEND }}
           SITE_URL: http://localhost:5000
           AWS_REGION: us-east-1
-
 
   cleanup-ci-backend-stack:
     name: Cleanup E2E Test Backend Stack
@@ -222,9 +219,8 @@ jobs:
       - name: Build
         run: yarn build:frontend
         env:
-          DISABLE_ESLINT_PLUGIN: 'true'
-          DISABLE_TYPE_CHECKS: 'true'
-
+          DISABLE_ESLINT_PLUGIN: "true"
+          DISABLE_TYPE_CHECKS: "true"
 
       - uses: actions/upload-artifact@v2
         with:
@@ -310,25 +306,25 @@ jobs:
     name: CodeQL Analysis
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: ${{ matrix.language }}
+      - uses: actions/checkout@v2
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: ${{ matrix.language }}
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
 
   release:
     name: Release Package
-    needs: 
-    - lint
-    - integration-tests
-    - unit-test
-    - types
-    - e2e-tests
-    - cdk-synth
-    - codeql
+    needs:
+      - lint
+      - integration-tests
+      - unit-test
+      - types
+      - e2e-tests
+      - cdk-synth
+      - codeql
 
     runs-on: ubuntu-latest
     steps:
@@ -356,6 +352,6 @@ jobs:
       - name: Release Package
         run: yarn semantic-release
         env:
-          NPM_CONFIG_REGISTRY: "https://npm.pkg.github.com",
+          NPM_CONFIG_REGISTRY: "https://npm.pkg.github.com"
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
