@@ -1,6 +1,11 @@
 name: Deploy Application to Prod
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Application version'
+        required: true
+        default: 'latest'
   registry_package:
     types: [published, updated]
 
@@ -23,7 +28,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Install Package
-        run: npm install -g @benwainwright/tnm
+        run: npm install -g @benwainwright/tnm@${{ github.event.inputs.version }}
 
       - name: Get package directory
         run: echo "PACKAGE_DIR=$(npm list -g | head -1)/node_modules/@benwainwright/tnm" >> $GITHUB_ENV
