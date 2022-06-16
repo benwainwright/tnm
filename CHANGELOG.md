@@ -1,3 +1,13 @@
+## [1.30.0](https://github.com/benwainwright/tnm/compare/v1.29.0...v1.30.0) (2022-06-16)
+
+
+### Features
+
+* add more examples ([3bc431e](https://github.com/benwainwright/tnm/commit/3bc431e653f35011f10e0965dabf9a6fbbc98781))
+* added algorithm page and commented out vegetarian option ([e9e8ec8](https://github.com/benwainwright/tnm/commit/e9e8ec89d27631a8aab3d83d614b54b2c3ccdcdd))
+* allow multiple examples ([facf5e5](https://github.com/benwainwright/tnm/commit/facf5e5311237092d4ec40a089fd0bfc98fe7a42))
+* implement fuzzy search ([2d8b3e4](https://github.com/benwainwright/tnm/commit/2d8b3e4ad071d6f9893a7bb32d90128a6f5e765d))
+
 ## [1.29.0](https://github.com/benwainwright/tnm/compare/v1.28.4...v1.29.0) (2022-06-06)
 
 
