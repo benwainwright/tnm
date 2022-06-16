@@ -356,5 +356,6 @@ jobs:
       - name: Release Package
         run: yarn semantic-release
         env:
+          NPM_CONFIG_REGISTRY: "https://npm.pkg.github.com",
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
