@@ -18,4 +18,5 @@ export default interface Recipe {
   createdAt?: string;
   updatedAt?: string;
   vegetarianOption?: Recipe;
+  noPorkOption?: Recipe;
 }

@@ -79,9 +79,16 @@ type Recipe {
   invalidExclusions: [ID!]
   potentialExclusions: [Exclusion!]!
   vegetarianOption: Recipe
+  noPorkOption: Recipe
 }
 
 input VegetarianOptionExclusionInput {
+  id: String!
+  name: String!
+  allergen: Boolean!
+}
+
+input NoPorkOptionExclusionInput {
   id: String!
   name: String!
   allergen: Boolean!
@@ -97,6 +104,20 @@ input VegetarianOptionInput {
   invalidExclusions: [ID!]
   potentialExclusions: [VegetarianOptionExclusionInput]!
   vegetarianOption: VegetarianOptionInput
+  noPorkOption: NoPorkOptionInput
+}
+
+input NoPorkOptionInput {
+  id: ID!
+  name: String!
+  hotOrCold: String!
+  shortName: String!
+  description: String
+  allergens: String
+  invalidExclusions: [ID!]
+  potentialExclusions: [NoPorkOptionExclusionInput]!
+  vegetarianOption: VegetarianOptionInput
+  noPorkOption: NoPorkOptionInput
 }
 
 input UpdateRecipeInput {
@@ -109,6 +130,7 @@ input UpdateRecipeInput {
   invalidExclusions: [ID!]
   exclusionIds: [ID!]!
   vegetarianOption: VegetarianOptionInput
+  noPorkOption: NoPorkOptionInput
 }
 
 input DeleteRecipeInput {
@@ -124,6 +146,7 @@ input RecipeInput {
   exclusionIds: [ID!]!
   invalidExclusions: [ID!]
   vegetarianOption: VegetarianOptionInput
+  noPorkOption: NoPorkOptionInput
 }
 
 type Customer {

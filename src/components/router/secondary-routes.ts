@@ -10,4 +10,9 @@ export const secondaryRoutes: Routes = {
   "/new-customer": {
     importFn: async () => import("../../features/customers/NewCustomerPage"),
   },
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  "/algorithm": {
+    importFn: async () => import("../../features/algorithm/AlgorithmPage"),
+  },
 };

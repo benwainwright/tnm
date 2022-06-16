@@ -1,4 +1,4 @@
-import fuzzy from "fuzzy";
+// import fuzzy from "fuzzy";
 import {
   Button,
   Card,
@@ -19,7 +19,7 @@ import { ApiRequestFunction } from "../../lib/apiRequestCreator";
 import React from "react";
 import { allExclusionsSelector } from "../../features/exclusions/exclusionsSlice";
 import { debounce } from "lodash";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 interface EditRecipesDialogProps {
   recipe: Recipe;
@@ -30,31 +30,31 @@ interface EditRecipesDialogProps {
   onCancel: () => void;
 }
 
-const SelectOption = styled.div`
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
-`;
+// const SelectOption = styled.div`
+//   margin-top: 0.3rem;
+//   margin-bottom: 0.3rem;
+// `;
 
-const VegeterianOptionElement = styled.li`
-  list-style: none;
-  margin: 0;
-  font-size: 0.8rem;
-  padding: 0;
-`;
+// const VegeterianOptionElement = styled.li`
+//   list-style: none;
+//   margin: 0;
+//   font-size: 0.8rem;
+//   padding: 0;
+// `;
 
 const ONSUBMIT_DEBOUNCE = 500;
 
 const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
   const [recipe, setRecipe] = React.useState(props.recipe);
-  const [vegOptionSearch, setVegOptionSearch] = React.useState("");
+  // const [vegOptionSearch, setVegOptionSearch] = React.useState("");
 
-  const filteredRecipes = vegOptionSearch
-    ? fuzzy
-        .filter(vegOptionSearch, props.recipes, {
-          extract: (el) => `${el.description} ${el.name} ${el.shortName}`,
-        })
-        .map((item) => item.original)
-    : props.recipes;
+  // const filteredRecipes = vegOptionSearch
+  //   ? fuzzy
+  //       .filter(vegOptionSearch, props.recipes, {
+  //         extract: (el) => `${el.description} ${el.name} ${el.shortName}`,
+  //       })
+  //       .map((item) => item.original)
+  //   : props.recipes;
 
   const dispatch = useDispatch();
   const exclusions = useSelector(allExclusionsSelector);
@@ -140,6 +140,7 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
                 valueKey="name"
               />
             </FormField>
+            {/*
             <FormField name="vegatarianOption" label="Vegetarian Option">
               <Select
                 closeOnChange={false}
@@ -170,6 +171,7 @@ const EditRecipesDialog: React.FC<EditRecipesDialogProps> = (props) => {
                 }}
               </Select>
             </FormField>
+              */}
           </CardBody>
           <CardFooter pad="medium" alignSelf="center" justify="center">
             <Button
